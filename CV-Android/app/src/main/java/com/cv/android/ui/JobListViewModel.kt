@@ -1,23 +1,17 @@
 package com.cv.android.ui
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.cv.android.repository.ContactInfoRepository
-import com.cv.models.ContactInfo
+import com.cv.android.repository.JobsRepository
+import com.cv.models.Job
 
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
-class JobListViewModel(private val repository: ContactInfoRepository) : ViewModel() {
+class JobListViewModel(private val repository: JobsRepository) : ViewModel() {
 
-    val name : MutableLiveData<String> = MutableLiveData()
-    val address : MutableLiveData<String> = MutableLiveData()
-    val email : MutableLiveData<String> = MutableLiveData()
-    val mobile : MutableLiveData<String> = MutableLiveData()
-    val webAddress : MutableLiveData<String> = MutableLiveData()
 
-    private val contactInfo : MutableLiveData<ContactInfo> = MutableLiveData()
+    val jobListAdapter: JobListAdapter = JobListAdapter()
 
     private lateinit var subscription: Disposable
 
@@ -27,20 +21,20 @@ class JobListViewModel(private val repository: ContactInfoRepository) : ViewMode
 
     private fun loadData() {
 
-        subscription = repository.getContactInfo()
-            .subscribeOn(Schedulers.newThread())
+        subscription = repository.getJobs()
+            .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
 
-                contactInfo.value = it
-
-                name.value = it?.name
-                address.value = it?.addressLines?.joinToString(", ")
-                email.value = it?.emailAddress
-                mobile.value = it?.mobileContact
-                webAddress.value = it?.webAddress
+                onFetchedList(it)
 
             },Throwable::printStackTrace)
+    }
+
+    private fun onFetchedList(jobList : List<Job>) {
+
+        jobListAdapter.updateList(jobList)
+
     }
 
     override fun onCleared() {

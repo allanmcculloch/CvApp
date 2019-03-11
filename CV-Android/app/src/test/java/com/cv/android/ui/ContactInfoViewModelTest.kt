@@ -1,26 +1,18 @@
 package com.cv.android.ui
 
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.cv.android.repository.ContactInfoRepository
 import com.cv.models.ContactInfo
 import com.jraska.livedata.test
 import io.mockk.every
 import io.mockk.mockk
 import io.reactivex.Observable
-import io.reactivex.android.plugins.RxAndroidPlugins
-import io.reactivex.plugins.RxJavaPlugins
-import io.reactivex.schedulers.Schedulers
 import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
 
-class ContactInfoViewModelTest {
+class ContactInfoViewModelTest : BaseViewModelTest() {
 
     lateinit var viewModel : ContactInfoViewModel
     lateinit var contactInfoRepository : ContactInfoRepository
-
-    @get:Rule
-    val taskExecutorRule = InstantTaskExecutorRule()
 
     @Before
     fun setUp() {
@@ -28,9 +20,6 @@ class ContactInfoViewModelTest {
         contactInfoRepository = mockk(relaxed = true)
 
         every {contactInfoRepository.getContactInfo() }.returns(Observable.just(testContactInfo))
-
-        RxJavaPlugins.setIoSchedulerHandler { Schedulers.trampoline() }
-        RxAndroidPlugins.setInitMainThreadSchedulerHandler { Schedulers.trampoline() }
     }
 
     @Test

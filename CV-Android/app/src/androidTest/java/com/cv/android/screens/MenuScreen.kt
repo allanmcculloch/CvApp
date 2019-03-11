@@ -16,4 +16,16 @@ internal class MenuScreen {
     fun clickContactDetailsMenu() {
         onView(withText(R.string.drawer_contact_info)).perform(click())
     }
+
+    fun clickJobsListMenu() {
+        onView(withText(R.string.drawer_professional_experience)).perform(click())
+    }
+
+    fun clickMyPictures() {
+        onView(withText(R.string.drawer_my_pictures)).perform(click())
+    }
+
+    fun clickContact() {
+        onView(withText(R.string.drawer_contact_me)).perform(click())
+    }
 }

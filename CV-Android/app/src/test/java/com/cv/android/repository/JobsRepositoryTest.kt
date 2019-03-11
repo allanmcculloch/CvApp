@@ -47,7 +47,7 @@ class JobsRepositoryTest {
     @Test
     fun when_nocache_updatesCacheFromApi() {
 
-        jobsRepository.cache = null
+        jobsRepository.cache = listOf()
 
         every { cvApiServiceMock.getJobs() }.returns(Observable.just(sampleDataApi))
 

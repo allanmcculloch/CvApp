@@ -19,8 +19,12 @@
             android:id="@+id/contactFragment"
             android:name="com.cv.android.ui.ContactFragment"
             android:label="fragment_blank"
-            tools:layout="@layout/fragment_contact" >
+            tools:layout="@layout/fragment_contact" />
 
-    </fragment>
+    <fragment
+            android:id="@+id/jobListFragment"
+            android:name="com.cv.android.ui.JobListFragment"
+            android:label="fragment_blank"
+            tools:layout="@layout/fragment_contact" />
 
 </navigation>
