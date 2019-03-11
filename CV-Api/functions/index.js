@@ -70,9 +70,9 @@ exports.sendMessage = functions.region('europe-west1').https.onRequest((request,
 	 var requestBody = request.body
 
 	 if (!requestBody.name || !requestBody.fromEmail || !requestBody.message) 
-	 	return response.status(400) 
+	 	return response.status(400).end()
 	 
 	 //TODO: send message via SendGrid or similar
 
-	 return response.status(204) 
+	 return response.status(204).end()
 });

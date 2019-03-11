@@ -21,7 +21,7 @@ class SendMessageViewModel(private val cvApiService: CvApiService) : ViewModel()
     private lateinit var subscription: Disposable
 
     init {
-        formVisible.value = true
+zxc        formVisible.value = true
         sentMessageVisibile.value = false
         errorMessageVisibile.value = false
     }
