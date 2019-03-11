@@ -1,36 +1,25 @@
 package com.cv.android.ui
 
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.cv.android.repository.CvRepository
+import com.cv.android.repository.ContactInfoRepository
 import com.cv.models.ContactInfo
 import com.jraska.livedata.test
 import io.mockk.every
 import io.mockk.mockk
 import io.reactivex.Observable
-import io.reactivex.android.plugins.RxAndroidPlugins
-import io.reactivex.plugins.RxJavaPlugins
-import io.reactivex.schedulers.Schedulers
 import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
 
-class ContactInfoViewModelTest {
+class ContactInfoViewModelTest : BaseViewModelTest() {
 
     lateinit var viewModel : ContactInfoViewModel
-    lateinit var cvRepository : CvRepository
-
-    @get:Rule
-    val taskExecutorRule = InstantTaskExecutorRule()
+    lateinit var contactInfoRepository : ContactInfoRepository
 
     @Before
     fun setUp() {
 
-        cvRepository = mockk(relaxed = true)
+        contactInfoRepository = mockk(relaxed = true)
 
-        every {cvRepository.getContactInfo() }.returns(Observable.just(testContactInfo))
-
-        RxJavaPlugins.setIoSchedulerHandler { Schedulers.trampoline() }
-        RxAndroidPlugins.setInitMainThreadSchedulerHandler { Schedulers.trampoline() }
+        every {contactInfoRepository.getContactInfo() }.returns(Observable.just(testContactInfo))
     }
 
     @Test
@@ -38,7 +27,7 @@ class ContactInfoViewModelTest {
 
         val expectedAddressFormat = "Address Line 1, Line 2, Line 3"
 
-        viewModel = ContactInfoViewModel(cvRepository)
+        viewModel = ContactInfoViewModel(contactInfoRepository)
 
         viewModel.address.test()
             .awaitValue()
@@ -49,7 +38,7 @@ class ContactInfoViewModelTest {
     @Test
     fun checkFields() {
 
-        viewModel = ContactInfoViewModel(cvRepository)
+        viewModel = ContactInfoViewModel(contactInfoRepository)
 
         viewModel.name.test()
             .awaitValue()

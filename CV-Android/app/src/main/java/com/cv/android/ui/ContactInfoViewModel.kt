@@ -2,14 +2,14 @@ package com.cv.android.ui
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.cv.android.repository.CvRepository
+import com.cv.android.repository.ContactInfoRepository
 import com.cv.models.ContactInfo
 
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
-class ContactInfoViewModel(private val repository: CvRepository) : ViewModel() {
+class ContactInfoViewModel(private val repository: ContactInfoRepository) : ViewModel() {
 
     val name : MutableLiveData<String> = MutableLiveData()
     val address : MutableLiveData<String> = MutableLiveData()

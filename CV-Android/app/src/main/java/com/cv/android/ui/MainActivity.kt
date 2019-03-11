@@ -42,25 +42,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-
-        menuInflater.inflate(R.menu.main, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
-        when (item.itemId) {
-            R.id.action_settings -> return true
-            else -> return super.onOptionsItemSelected(item)
-        }
-    }
-
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
         when (item.itemId) {
+
+
             R.id.nav_contact_info -> {
                 findNavController(R.id.nav_host_fragment).navigate(R.id.contactInfoFragment)
+            }
+            R.id.nav_experience -> {
+                findNavController(R.id.nav_host_fragment).navigate(R.id.jobListFragment)
             }
             R.id.nav_contact_me -> {
                 findNavController(R.id.nav_host_fragment).navigate(R.id.contactFragment)

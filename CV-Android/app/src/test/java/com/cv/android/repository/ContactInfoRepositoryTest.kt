@@ -10,27 +10,25 @@ import org.junit.Test
 import org.junit.Before
 
 
-class CvRepositoryTest {
+class ContactInfoRepositoryTest {
 
     private lateinit var cvApiServiceMock: CvApiService
-    private lateinit var contactInfoRepository : CvRepository
+    private lateinit var contactInfoRepository : ContactInfoRepository
 
     @Before
     fun setup() {
         cvApiServiceMock = mockk(relaxed = true)
-        contactInfoRepository = CvRepository(cvApiServiceMock)
+        contactInfoRepository = ContactInfoRepository(cvApiServiceMock)
     }
 
     @Test
     fun when_emptycache_callapi_returnsApiData() {
 
-        val testName = "John Smith"
-
-        val apiContactInfo = ContactInfo(testName)
+        val apiContactInfo = ContactInfo("John Smith")
 
         every { cvApiServiceMock.getContactInfo() }.returns(Observable.just(apiContactInfo))
 
-        var contactInfoReturned = contactInfoRepository.getContactInfo()
+        val contactInfoReturned = contactInfoRepository.getContactInfo()
 
         contactInfoReturned.test().assertValue { it == apiContactInfo}
     }
@@ -45,7 +43,7 @@ class CvRepositoryTest {
 
         every { cvApiServiceMock.getContactInfo() }.returns(Observable.just(apiContactInfo))
 
-        var contactInfoReturned = contactInfoRepository.getContactInfo()
+        val contactInfoReturned = contactInfoRepository.getContactInfo()
 
         contactInfoReturned.test().assertValueAt(0) { it == cachedContactInfo}
         contactInfoReturned.test().assertValueAt(1) { it == apiContactInfo}
@@ -60,7 +58,7 @@ class CvRepositoryTest {
 
         every { cvApiServiceMock.getContactInfo() }.returns(Observable.just(apiContactInfo))
 
-        var contactInfoReturned = contactInfoRepository.getContactInfo()
+        val contactInfoReturned = contactInfoRepository.getContactInfo()
 
         contactInfoReturned.test().assertValueAt(0) { it == apiContactInfo}
 

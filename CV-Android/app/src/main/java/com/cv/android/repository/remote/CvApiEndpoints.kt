@@ -1,4 +1,4 @@
-package com.cv.android.network
+package com.cv.android.repository.remote
 
 import com.cv.models.ContactInfo
 import com.cv.models.ContactRequest
@@ -10,7 +10,7 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 
 
-interface CvApi {
+interface CvApiEndpoints {
 
     @GET("/jobs")
     fun getJobs(): Observable<List<Job>>

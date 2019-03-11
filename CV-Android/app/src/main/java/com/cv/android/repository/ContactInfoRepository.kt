@@ -4,7 +4,7 @@ import com.cv.android.repository.remote.CvApiService
 import com.cv.models.ContactInfo
 import io.reactivex.Observable
 
-class CvRepository(private val cvApiService : CvApiService) {
+class ContactInfoRepository(private val cvApiService : CvApiService) {
 
     var cache : ContactInfo? = null
 

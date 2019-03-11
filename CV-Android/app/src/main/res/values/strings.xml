@@ -2,16 +2,17 @@
     <string name="app_name">CV App</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
+    <string name="menu_title">CV App</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
 
     <string name="contact_fragment">Contact Fragment</string>
-    <string name="drawer_contact_info">Contact Info</string>
+    <string name="drawer_contact_info">Contact details</string>
     <string name="drawer_professional_experience">Professional Experience</string>
-    <string name="drawer_interests">Interests</string>
     <string name="drawer_my_pictures">My Pictures</string>
     <string name="drawer_contact_me">Contact Me</string>
     <string name="drawer_header_communicate">Communicate</string>
+
+    <string name="professional_experience">Professional Experience</string>
+    <string name="contact_details">My Contact details</string>
 </resources>
