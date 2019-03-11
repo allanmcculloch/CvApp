@@ -1,7 +1,7 @@
 package com.cv.android.ui
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.cv.android.repository.CvRepository
+import com.cv.android.repository.ContactInfoRepository
 import com.cv.models.ContactInfo
 import com.jraska.livedata.test
 import io.mockk.every
@@ -17,7 +17,7 @@ import org.junit.Test
 class ContactInfoViewModelTest {
 
     lateinit var viewModel : ContactInfoViewModel
-    lateinit var cvRepository : CvRepository
+    lateinit var contactInfoRepository : ContactInfoRepository
 
     @get:Rule
     val taskExecutorRule = InstantTaskExecutorRule()
@@ -25,9 +25,9 @@ class ContactInfoViewModelTest {
     @Before
     fun setUp() {
 
-        cvRepository = mockk(relaxed = true)
+        contactInfoRepository = mockk(relaxed = true)
 
-        every {cvRepository.getContactInfo() }.returns(Observable.just(testContactInfo))
+        every {contactInfoRepository.getContactInfo() }.returns(Observable.just(testContactInfo))
 
         RxJavaPlugins.setIoSchedulerHandler { Schedulers.trampoline() }
         RxAndroidPlugins.setInitMainThreadSchedulerHandler { Schedulers.trampoline() }
@@ -38,7 +38,7 @@ class ContactInfoViewModelTest {
 
         val expectedAddressFormat = "Address Line 1, Line 2, Line 3"
 
-        viewModel = ContactInfoViewModel(cvRepository)
+        viewModel = ContactInfoViewModel(contactInfoRepository)
 
         viewModel.address.test()
             .awaitValue()
@@ -49,7 +49,7 @@ class ContactInfoViewModelTest {
     @Test
     fun checkFields() {
 
-        viewModel = ContactInfoViewModel(cvRepository)
+        viewModel = ContactInfoViewModel(contactInfoRepository)
 
         viewModel.name.test()
             .awaitValue()

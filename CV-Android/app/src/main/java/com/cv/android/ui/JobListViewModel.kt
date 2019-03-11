@@ -9,7 +9,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
-class ContactInfoViewModel(private val repository: ContactInfoRepository) : ViewModel() {
+class JobListViewModel(private val repository: ContactInfoRepository) : ViewModel() {
 
     val name : MutableLiveData<String> = MutableLiveData()
     val address : MutableLiveData<String> = MutableLiveData()
