@@ -1,5 +1,6 @@
 package com.cv.android.ui
 
+import com.cv.android.ui.joblist.JobViewModel
 import com.cv.models.Job
 import com.jraska.livedata.test
 import org.junit.Test

@@ -1,6 +1,7 @@
-package com.cv.android.ui
+package com.cv.android.ui.contactinfo
 
 import com.cv.android.repository.ContactInfoRepository
+import com.cv.android.ui.BaseViewModelTest
 import com.cv.models.ContactInfo
 import com.jraska.livedata.test
 import io.mockk.every
@@ -27,7 +28,7 @@ class ContactInfoViewModelTest : BaseViewModelTest() {
 
         val expectedAddressFormat = "Address Line 1, Line 2, Line 3"
 
-        viewModel = ContactInfoViewModel(contactInfoRepository)
+        viewModel = createViewModel()
 
         viewModel.address.test()
             .awaitValue()
@@ -38,7 +39,7 @@ class ContactInfoViewModelTest : BaseViewModelTest() {
     @Test
     fun checkFields() {
 
-        viewModel = ContactInfoViewModel(contactInfoRepository)
+        viewModel = createViewModel()
 
         viewModel.name.test()
             .awaitValue()
@@ -60,6 +61,8 @@ class ContactInfoViewModelTest : BaseViewModelTest() {
             .assertHasValue()
             .assertValue(testContactInfo.emailAddress)
     }
+
+    fun createViewModel() = ContactInfoViewModel(contactInfoRepository)
 
     val testContactInfo : ContactInfo =
 

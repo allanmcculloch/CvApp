@@ -1,4 +1,4 @@
-package com.cv.android.ui
+package com.cv.android.ui.joblist
 
 import androidx.lifecycle.ViewModel
 import com.cv.android.repository.JobsRepository

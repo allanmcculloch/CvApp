@@ -2,9 +2,10 @@ package com.cv.android.repository.remote
 
 import com.cv.android.network.ClientProvider
 import com.cv.models.ContactInfo
-import com.cv.models.ContactRequest
+import com.cv.models.SendMessageRequest
 import com.cv.models.Job
 import io.reactivex.Observable
+import retrofit2.Response
 
 class CvApiService(clientProvider: ClientProvider) {
 
@@ -14,5 +15,5 @@ class CvApiService(clientProvider: ClientProvider) {
 
     fun getJobs() : Observable<List<Job>> = api.getJobs()
 
-    fun postContactRequest(request: ContactRequest) = api.postContactRequest(request)
+    fun postSendMessage(request: SendMessageRequest) : Observable<Response<Unit>> = api.postSendMessage(request)
 }

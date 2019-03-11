@@ -3,7 +3,6 @@ package com.cv.android
 import androidx.test.rule.ActivityTestRule
 import com.cv.android.screens.ContactDetailsScreen
 import com.cv.android.screens.MenuScreen
-import com.cv.android.ui.MainActivity
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -34,6 +33,5 @@ class ContactDetailsTests {
         contactDetailsScreen.checkAddressHasText("42 My Street, London, E1 1AB")
         contactDetailsScreen.checkMobileHasText("0712345678")
         contactDetailsScreen.checkWebAddressHasText("https://www.linkedin.com/in/allanmcculloch")
-
     }
 }

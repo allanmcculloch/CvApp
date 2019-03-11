@@ -1,4 +1,4 @@
-package com.cv.android.ui
+package com.cv.android.ui.contactinfo
 
 import android.os.Bundle
 import android.view.LayoutInflater
