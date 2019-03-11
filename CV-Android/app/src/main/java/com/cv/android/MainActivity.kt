@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         fab.setOnClickListener {
 
             findNavController(R.id.nav_host_fragment).navigate(R.id.contactFragment)
+            fab?.hide()
         }
 
         val toggle = ActionBarDrawerToggle(
@@ -42,8 +43,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
-        when (item.itemId) {
+        fab.show()
 
+        when (item.itemId) {
 
             R.id.nav_contact_info -> {
                 findNavController(R.id.nav_host_fragment).navigate(R.id.contactInfoFragment)
@@ -53,6 +55,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.nav_contact_me -> {
                 findNavController(R.id.nav_host_fragment).navigate(R.id.contactFragment)
+                fab?.hide()
             }
         }
 

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.cv.android.R
+import kotlinx.android.synthetic.main.activity_main.*
 
 class SendMessageFragment : Fragment() {
 
