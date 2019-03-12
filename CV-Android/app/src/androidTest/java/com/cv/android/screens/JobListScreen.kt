@@ -18,28 +18,29 @@ internal class JobListScreen {
 
     fun checkPositionHasText(text : String, position : Int) {
 
-        checkText(text, position)
+        checkTextOnRecycler(jobsList, text, position)
     }
+}
 
-    private fun checkText(text: String, position : Int) {
-        onView(withId(jobsList))
-            .check(matches(atPosition(position, hasDescendant(withText(text)))))
-    }
 
-    private fun atPosition(position: Int, @NonNull itemMatcher: Matcher<View>): Matcher<View> {
-        checkNotNull(itemMatcher)
-        return object : BoundedMatcher<View, RecyclerView>(RecyclerView::class.java) {
-            override fun describeTo(description: Description) {
-                description.appendText("has item at position $position: ")
-                itemMatcher.describeTo(description)
-            }
+fun checkTextOnRecycler(recyclerId : Int, text: String, position : Int) {
+    onView(withId(recyclerId))
+        .check(matches(atPosition(position, hasDescendant(withText(text)))))
+}
 
-            override fun matchesSafely(view: RecyclerView): Boolean {
-                val viewHolder = view.findViewHolderForAdapterPosition(position)
-                    ?: // has no item on such position
-                    return false
-                return itemMatcher.matches(viewHolder.itemView)
-            }
+fun atPosition(position: Int, @NonNull itemMatcher: Matcher<View>): Matcher<View> {
+    checkNotNull(itemMatcher)
+    return object : BoundedMatcher<View, RecyclerView>(RecyclerView::class.java) {
+        override fun describeTo(description: Description) {
+            description.appendText("has item at position $position: ")
+            itemMatcher.describeTo(description)
+        }
+
+        override fun matchesSafely(view: RecyclerView): Boolean {
+            val viewHolder = view.findViewHolderForAdapterPosition(position)
+                ?: // has no item on such position
+                return false
+            return itemMatcher.matches(viewHolder.itemView)
         }
     }
 }

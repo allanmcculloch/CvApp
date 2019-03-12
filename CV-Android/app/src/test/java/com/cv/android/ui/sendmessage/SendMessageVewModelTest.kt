@@ -83,7 +83,7 @@ class SendMessageVewModelTest : BaseViewModelTest() {
     }
 
     @Test
-    fun sendMessageUnSuccessfulServerError() {
+    fun sendMessageUnsuccessfulServerError() {
 
         setValidFieldValues()
         mockUnsuccessfulServerErrorResponse()
@@ -107,7 +107,7 @@ class SendMessageVewModelTest : BaseViewModelTest() {
     }
 
     @Test
-    fun sendMessageUnSuccessfulBadRequest() {
+    fun sendMessageUnsuccessfulBadRequest() {
 
         setInvalidFieldValues()
         mockUnsuccessfulRequestResponse()
@@ -131,7 +131,7 @@ class SendMessageVewModelTest : BaseViewModelTest() {
     }
 
     @Test
-    fun sendMessageFailedThenSuccess() {
+    fun sendMessageFailThenSuccess() {
 
         setInvalidFieldValues()
         mockUnsuccessfulRequestResponse()
