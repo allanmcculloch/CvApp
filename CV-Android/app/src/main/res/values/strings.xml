@@ -21,6 +21,5 @@
     <string name="your_name">Your name</string>
     <string name="send_message_button">Send Message</string>
     <string name="thank_you_for_contacting_me">Thank you for contacting me!</string>
-    <string name="sorry_your_message_could_not_be_sent">Sorry your message could not be sent!</string>
-    <string name="could_not_send_please_check_all_fields_below">Could not send, please check all fields below</string>
+    <string name="sorry_your_message_could_not_be_sent">Your message could not be sent!\nPlease ensure all fields are completed.</string>
 </resources>
