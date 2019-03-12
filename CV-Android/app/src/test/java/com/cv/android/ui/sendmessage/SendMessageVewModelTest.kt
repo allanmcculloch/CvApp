@@ -23,20 +23,22 @@ class SendMessageVewModelTest : BaseViewModelTest() {
     fun setUp() {
 
         cvApiService = mockk(relaxed = true)
-
         viewModel = CreateViewModel()
     }
 
     private fun mockSuccessfulResponse() {
+
         every {cvApiService.postSendMessage(testValidSendMessageRequest) }.returns(Observable.just(Response.success(Unit)))
     }
 
     private fun mockUnsuccessfulServerErrorResponse() {
+
         every {cvApiService.postSendMessage(testValidSendMessageRequest) }.returns(Observable.just(Response.error(500, ResponseBody.create(
             MediaType.get("application/json"),""))))
     }
 
     private fun mockUnsuccessfulRequestResponse() {
+
         every {cvApiService.postSendMessage(testBadSendMessageRequest) }.returns(Observable.just(Response.error(403, ResponseBody.create(
             MediaType.get("application/json"),""))))
     }
@@ -126,6 +128,40 @@ class SendMessageVewModelTest : BaseViewModelTest() {
             .awaitValue()
             .assertHasValue()
             .assertValue(true)
+    }
+
+    @Test
+    fun sendMessageFailedThenSuccess() {
+
+        setInvalidFieldValues()
+        mockUnsuccessfulRequestResponse()
+
+        viewModel.sendMessage()
+
+        viewModel.errorMessageVisibile.test()
+            .awaitValue()
+            .assertHasValue()
+            .assertValue(true)
+
+        mockSuccessfulResponse()
+        setValidFieldValues()
+
+        viewModel.sendMessage()
+
+        viewModel.sentMessageVisibile.test()
+            .awaitValue()
+            .assertHasValue()
+            .assertValue(true)
+
+        viewModel.formVisible.test()
+            .awaitValue()
+            .assertHasValue()
+            .assertValue(false)
+
+        viewModel.errorMessageVisibile.test()
+            .awaitValue()
+            .assertHasValue()
+            .assertValue(false)
     }
 
     val testValidSendMessageRequest = SendMessageRequest("testName","testEmail","testMessage")

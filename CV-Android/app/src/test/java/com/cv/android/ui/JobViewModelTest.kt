@@ -10,7 +10,7 @@ class JobViewModelTest : BaseViewModelTest() {
     @Test
     fun testReturnsCorrectValues() {
 
-        var viewModel = createViewModel()
+        val viewModel = createViewModel()
 
         viewModel.bind(jobTestData)
 

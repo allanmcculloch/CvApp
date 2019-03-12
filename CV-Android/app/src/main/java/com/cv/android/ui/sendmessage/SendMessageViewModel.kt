@@ -1,5 +1,6 @@
 package com.cv.android.ui.sendmessage
 
+import android.text.BoringLayout
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.cv.android.repository.remote.CvApiService
@@ -21,7 +22,7 @@ class SendMessageViewModel(private val cvApiService: CvApiService) : ViewModel()
     private lateinit var subscription: Disposable
 
     init {
-zxc        formVisible.value = true
+        formVisible.value = true
         sentMessageVisibile.value = false
         errorMessageVisibile.value = false
     }
@@ -36,12 +37,13 @@ zxc        formVisible.value = true
                 if (it.isSuccessful) {
                     formVisible.value = false
                     sentMessageVisibile.value = true
+                    errorMessageVisibile.value = false
                 }
                 else {
                     errorMessageVisibile.value = true
                 }
 
-            },{
+            }, {
                 errorMessageVisibile.value = true
             })
     }
