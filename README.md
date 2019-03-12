@@ -1,8 +1,8 @@
 # CvApp
 
-This is a simple demo app with the following features:
+This is a simple demo Android app with the following features:
 
-- View curriculum vitae (CV) contact information and photo
+- View curriculum vitae (CV) contact information
 - View professional experience, list of past roles with company images
 - View photos
 - Send a message
@@ -34,6 +34,7 @@ And UI testing using:
 
 Simple backend API on Firebase with endpoints for:
 
-- /contactDetails - Get contact information
-- /jobs - Get a list of jobs 
-- /sendMessage - Send a message
+- GET /contactDetails - Get contact information
+- GET /jobs - Get a list of jobs 
+- POST /sendMessage - Send a message
+- GET /photos - get a list of photos (stored on Firebase Storage)
