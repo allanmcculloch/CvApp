@@ -52,7 +52,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.nav_mypics -> {
                 findNavController(R.id.nav_host_fragment).navigate(R.id.photosFragment)
-                fab?.hide()
             }
             R.id.nav_contact_me -> {
                 findNavController(R.id.nav_host_fragment).navigate(R.id.contactFragment)

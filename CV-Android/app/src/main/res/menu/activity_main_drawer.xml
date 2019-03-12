@@ -19,15 +19,13 @@
                 android:id="@+id/nav_mypics"
                 android:icon="@drawable/ic_menu_camera"
                 android:title="@string/drawer_my_pictures"/>
-    </group>
 
-    <item android:title="@string/drawer_header_communicate">
-        <menu>
-            <item
-                    android:id="@+id/nav_contact_me"
-                    android:icon="@android:drawable/ic_dialog_email"
-                    android:title="@string/drawer_contact_me"/>
-        </menu>
-    </item>
+        <item
+                android:id="@+id/nav_contact_me"
+                android:icon="@android:drawable/ic_dialog_email"
+                android:title="@string/drawer_contact_me"/>
+
+
+    </group>
 
 </menu>

@@ -10,9 +10,6 @@
             android:name="com.cv.android.ui.contactinfo.ContactInfoFragment"
             android:label="Contact Info"
             tools:layout="@layout/fragment_contact_info" >
-        <action
-                android:id="@+id/action_contactInfoFragment_to_contactFragment"
-                app:destination="@id/contactFragment" />
     </fragment>
 
     <fragment
