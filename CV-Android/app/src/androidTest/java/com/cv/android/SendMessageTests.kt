@@ -24,6 +24,8 @@ class SendMessageTests {
     @Test
     fun sendMessageSuccess() {
 
+        //TODO: handle network delay with Rx Idling Resource or mock server
+
         sendMessageScreen.typeName("Allan McCulloch")
         sendMessageScreen.typeEmail("allan@hotcross.co.uk")
         sendMessageScreen.typeMessage("Just trying out your app! :-)")
@@ -35,6 +37,8 @@ class SendMessageTests {
 
     @Test
     fun sendMessageFailed() {
+
+        //TODO: handle network delay with Rx Idling Resource or mock server
 
         sendMessageScreen.typeName("Allan McCulloch")
         sendMessageScreen.typeEmail("")

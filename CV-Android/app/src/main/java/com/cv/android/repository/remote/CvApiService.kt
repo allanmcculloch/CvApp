@@ -4,6 +4,7 @@ import com.cv.android.network.ClientProvider
 import com.cv.models.ContactInfo
 import com.cv.models.SendMessageRequest
 import com.cv.models.Job
+import com.cv.models.Photo
 import io.reactivex.Observable
 import retrofit2.Response
 
@@ -16,4 +17,7 @@ class CvApiService(clientProvider: ClientProvider) {
     fun getJobs() : Observable<List<Job>> = api.getJobs()
 
     fun postSendMessage(request: SendMessageRequest) : Observable<Response<Unit>> = api.postSendMessage(request)
+
+    fun getPhotos() : Observable<List<Photo>> = api.getPhotos()
+
 }

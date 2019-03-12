@@ -31,8 +31,7 @@ class JobListViewModelTest : BaseViewModelTest() {
         assertEquals(viewModel.jobListAdapter.itemCount, sampleData.count())
     }
 
-    fun createViewModel() : JobListViewModel =
-        JobListViewModel(jobsRepository)
+    fun createViewModel() = JobListViewModel(jobsRepository)
 
     val sampleData =
 

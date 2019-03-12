@@ -8,7 +8,7 @@
     <fragment
             android:id="@+id/contactInfoFragment"
             android:name="com.cv.android.ui.contactinfo.ContactInfoFragment"
-            android:label="fragment_blank"
+            android:label="Contact Info"
             tools:layout="@layout/fragment_contact_info" >
         <action
                 android:id="@+id/action_contactInfoFragment_to_contactFragment"
@@ -18,13 +18,19 @@
     <fragment
             android:id="@+id/contactFragment"
             android:name="com.cv.android.ui.sendmessage.SendMessageFragment"
-            android:label="fragment_blank"
+            android:label="Contact"
             tools:layout="@layout/fragment_send_message" />
 
     <fragment
             android:id="@+id/jobListFragment"
             android:name="com.cv.android.ui.joblist.JobListFragment"
-            android:label="fragment_blank"
+            android:label="Jobs"
             tools:layout="@layout/fragment_send_message" />
+
+    <fragment
+            android:id="@+id/photosFragment"
+            android:name="com.cv.android.ui.photos.PhotosFragment"
+            android:label="Photos"
+            tools:layout="@layout/fragment_photos" />
 
 </navigation>
