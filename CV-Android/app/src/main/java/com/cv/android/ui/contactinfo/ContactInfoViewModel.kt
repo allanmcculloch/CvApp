@@ -16,6 +16,7 @@ class ContactInfoViewModel(private val repository: ContactInfoRepository) : View
     val email : MutableLiveData<String> = MutableLiveData()
     val mobile : MutableLiveData<String> = MutableLiveData()
     val webAddress : MutableLiveData<String> = MutableLiveData()
+    val imageUrl : MutableLiveData<String> = MutableLiveData()
 
     private val contactInfo : MutableLiveData<ContactInfo> = MutableLiveData()
 
@@ -39,6 +40,7 @@ class ContactInfoViewModel(private val repository: ContactInfoRepository) : View
                 email.value = it?.emailAddress
                 mobile.value = it?.mobileContact
                 webAddress.value = it?.webAddress
+                imageUrl.value = it?.imageUrl
 
             },Throwable::printStackTrace)
     }

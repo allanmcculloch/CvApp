@@ -57,7 +57,7 @@ exports.contactDetails = functions.region('europe-west1').https.onRequest((reque
 			"emailAddress" : "allan@hotcross.co.uk",
 			"mobileContact": "0712345678",
 			"webAddress" : "https://www.linkedin.com/in/allanmcculloch",
-			"imageUrl" : "https://www.linkedin.com/in/allanmcculloch/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3B1uKXj79uQT2jZlDAkJBRUA%3D%3D&licu=urn%3Ali%3Acontrol%3Ad_flagship3_feed-identity_profile_photo"
+			"imageUrl" : "https://firebasestorage.googleapis.com/v0/b/cvapi-2b579.appspot.com/o/me.png?alt=media"
 		}
 	
 	 	var simulateNetworkDelayMs = 3;
