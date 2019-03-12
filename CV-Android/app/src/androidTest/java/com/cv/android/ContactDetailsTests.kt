@@ -18,8 +18,7 @@ class ContactDetailsTests {
 
     @Before
     fun setup() {
-        menuScreen.openMenu()
-        menuScreen.clickContactDetailsMenu()
+        menuScreen.openContactDetailsMenu()
     }
 
     @Test

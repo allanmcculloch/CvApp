@@ -18,8 +18,7 @@ class JobsListTests {
 
     @Before
     fun setup() {
-        menuScreen.openMenu()
-        menuScreen.clickJobsListMenu()
+        menuScreen.openJobsListMenu()
     }
 
     @Test

@@ -13,19 +13,23 @@ internal class MenuScreen {
         onView(withId(R.id.drawer_layout)).perform(DrawerActions.open())
     }
 
-    fun clickContactDetailsMenu() {
+    fun openContactDetailsMenu() {
+        openMenu()
         onView(withText(R.string.drawer_contact_info)).perform(click())
     }
 
-    fun clickJobsListMenu() {
+    fun openJobsListMenu() {
+        openMenu()
         onView(withText(R.string.drawer_professional_experience)).perform(click())
     }
 
-    fun clickMyPictures() {
+    fun openMyPictures() {
+        openMenu()
         onView(withText(R.string.drawer_my_pictures)).perform(click())
     }
 
-    fun clickContact() {
+    fun openContact() {
+        openMenu()
         onView(withText(R.string.drawer_contact_me)).perform(click())
     }
 }

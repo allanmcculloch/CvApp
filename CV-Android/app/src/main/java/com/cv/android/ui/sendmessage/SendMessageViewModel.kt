@@ -50,6 +50,6 @@ class SendMessageViewModel(private val cvApiService: CvApiService) : ViewModel()
 
     override fun onCleared() {
         super.onCleared()
-        subscription.dispose()
+        subscription?.dispose()
     }
 }

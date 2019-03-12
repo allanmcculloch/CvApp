@@ -38,7 +38,7 @@
 
 
         <TextView
-                android:id="@+id/userErrorMessage"
+                android:id="@+id/errorMessage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
@@ -76,7 +76,7 @@
                 android:textSize="18sp"
                 android:minWidth="300dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/userErrorMessage"
+                app:layout_constraintTop_toBottomOf="@id/errorMessage"
                 android:layout_marginTop="20dp"
                 android:text="@={viewModel.name}"
                 android:layout_marginLeft="20dp"
@@ -119,11 +119,14 @@
         />
 
 
-        <Button android:layout_width="wrap_content"
+        <com.google.android.material.button.MaterialButton android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/sendMessageButton"
                 android:minWidth="100dp"
+                android:minHeight="50dp"
                 app:layout_constraintStart_toStartOf="parent"
+                android:textAppearance="@color/colorAccent"
+                style="@style/SendButton"
                 app:layout_constraintTop_toBottomOf="@+id/message"
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="20dp"
