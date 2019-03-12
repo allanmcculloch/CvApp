@@ -1,10 +1,8 @@
 package com.cv.android
 
 import androidx.test.rule.ActivityTestRule
-import com.cv.android.screens.ContactDetailsScreen
 import com.cv.android.screens.JobListScreen
 import com.cv.android.screens.MenuScreen
-import com.cv.android.ui.MainActivity
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -20,8 +18,7 @@ class JobsListTests {
 
     @Before
     fun setup() {
-        menuScreen.openMenu()
-        menuScreen.clickJobsListMenu()
+        menuScreen.openJobsListMenu()
     }
 
     @Test

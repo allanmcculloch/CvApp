@@ -5,7 +5,7 @@
     <data>
         <variable
                 name="viewModel"
-                type="com.cv.android.ui.JobListViewModel" />
+                type="com.cv.android.ui.joblist.JobListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

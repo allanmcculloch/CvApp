@@ -1,4 +1,4 @@
-package com.cv.android.ui
+package com.cv.android.ui.contactinfo
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -28,7 +28,7 @@ class ContactInfoViewModel(private val repository: ContactInfoRepository) : View
     private fun loadData() {
 
         subscription = repository.getContactInfo()
-            .subscribeOn(Schedulers.newThread())
+            .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
 
@@ -45,6 +45,6 @@ class ContactInfoViewModel(private val repository: ContactInfoRepository) : View
 
     override fun onCleared() {
         super.onCleared()
-        subscription.dispose()
+        subscription?.dispose()
     }
 }

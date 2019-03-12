@@ -32,3 +32,13 @@ fun @receiver:IdRes Int.click() {
 fun @receiver:IdRes Int.waitForMatcher(matcher: Matcher<View>, millis: Long = 10000) {
     onView(withId(this)).perform(waitForViewAssertion(this, millis, matcher))
 }
+
+@IdRes
+fun @receiver:IdRes Int.typeText(text: String) {
+    onView(withId(this)).perform(androidx.test.espresso.action.ViewActions.typeText(text))
+}
+
+@IdRes
+fun @receiver:IdRes Int.checkIsVisible() {
+    onView(withId(this)).check(matches(isDisplayed()))
+}

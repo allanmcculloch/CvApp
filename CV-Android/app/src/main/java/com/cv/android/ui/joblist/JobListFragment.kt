@@ -1,4 +1,4 @@
-package com.cv.android.ui
+package com.cv.android.ui.joblist
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

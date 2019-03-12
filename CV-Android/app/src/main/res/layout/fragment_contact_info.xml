@@ -7,14 +7,14 @@
 <data>
     <variable
             name="viewModel"
-            type="com.cv.android.ui.ContactInfoViewModel" />
+            type="com.cv.android.ui.contactinfo.ContactInfoViewModel" />
 </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            tools:context=".ui.MainActivity"
+            tools:context=".MainActivity"
             android:layout_marginTop="20dp"
             android:paddingLeft="20dp">
 

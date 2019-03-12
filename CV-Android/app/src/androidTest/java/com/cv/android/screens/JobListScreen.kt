@@ -18,10 +18,10 @@ internal class JobListScreen {
 
     fun checkPositionHasText(text : String, position : Int) {
 
-        basicCheck(text, position)
+        checkText(text, position)
     }
 
-    private fun basicCheck(text: String, position : Int) {
+    private fun checkText(text: String, position : Int) {
         onView(withId(jobsList))
             .check(matches(atPosition(position, hasDescendant(withText(text)))))
     }

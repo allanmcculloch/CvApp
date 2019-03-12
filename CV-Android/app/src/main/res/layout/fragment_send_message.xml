@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+                name="viewModel"
+                type="com.cv.android.ui.sendmessage.SendMessageViewModel" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="50dp"
+            android:layout_marginLeft="20dp">
+
+
+
+
+
+        <TextView
+            android:id="@+id/header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="28sp"
+            android:text="@string/send_message"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginLeft="20dp"/>
+
+
+
+
+        <TextView
+                android:id="@+id/errorMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:text="@string/sorry_your_message_could_not_be_sent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/header"
+                android:textColor="@android:color/holo_red_dark"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:visibility="@{viewModel.errorMessageVisibile ? View.VISIBLE : View.GONE}"
+        />
+
+
+        <TextView
+                android:id="@+id/successMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:text="@string/thank_you_for_contacting_me"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/header"
+                android:textColor="@android:color/holo_green_dark"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:visibility="@{viewModel.sentMessageVisibile ? View.VISIBLE : View.GONE}"/>
+
+
+        <EditText
+                android:id="@+id/nameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:minWidth="300dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/errorMessage"
+                android:layout_marginTop="20dp"
+                android:text="@={viewModel.name}"
+                android:layout_marginLeft="20dp"
+                android:hint="@string/your_name"
+                android:visibility="@{viewModel.formVisible ? View.VISIBLE : View.GONE}"
+
+        />
+
+        <EditText
+                android:id="@+id/email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:minWidth="300dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/nameText"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:text="@={viewModel.email}"
+                android:hint="@string/your_email_address"
+                android:inputType="textEmailAddress"
+                android:visibility="@{viewModel.formVisible ? View.VISIBLE : View.GONE}"/>
+
+        <EditText
+                android:id="@+id/message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:minWidth="300dp"
+                android:lines="5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/email"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:hint="@string/your_message"
+                android:text="@={viewModel.message}"
+                android:visibility="@{viewModel.formVisible ? View.VISIBLE : View.GONE}"
+        />
+
+
+        <com.google.android.material.button.MaterialButton android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/sendMessageButton"
+                android:minWidth="100dp"
+                android:minHeight="50dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textAppearance="@color/colorAccent"
+                style="@style/SendButton"
+                app:layout_constraintTop_toBottomOf="@+id/message"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:text="@string/send_message_button"
+                android:onClick="@{() -> viewModel.sendMessage()}"
+                android:visibility="@{viewModel.formVisible ? View.VISIBLE : View.GONE}"
+        />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

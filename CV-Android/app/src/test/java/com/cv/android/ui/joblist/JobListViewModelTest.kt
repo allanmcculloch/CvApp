@@ -1,6 +1,7 @@
-package com.cv.android.ui
+package com.cv.android.ui.joblist
 
 import com.cv.android.repository.JobsRepository
+import com.cv.android.ui.BaseViewModelTest
 import com.cv.models.Job
 import io.mockk.every
 import io.mockk.mockk
@@ -32,7 +33,8 @@ class JobListViewModelTest : BaseViewModelTest() {
 
 
 
-    fun createViewModel() : JobListViewModel = JobListViewModel(jobsRepository)
+    fun createViewModel() : JobListViewModel =
+        JobListViewModel(jobsRepository)
 
     val sampleData =
 

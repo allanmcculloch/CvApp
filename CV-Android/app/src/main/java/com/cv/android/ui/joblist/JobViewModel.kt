@@ -1,4 +1,4 @@
-package com.cv.android.ui
+package com.cv.android.ui.joblist
 
 import androidx.lifecycle.MutableLiveData
 import com.cv.models.Job
