@@ -22,7 +22,6 @@ class ClientProvider {
                 MoshiConverterFactory.create(moshiBuilder.build())
             )
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            //.addCallAdapterFactory(CoroutineCallAdapterFactory())   // Coroutines adaptor
             .baseUrl(BASE_URL)
             .client(okHttpClient)
             .build()
