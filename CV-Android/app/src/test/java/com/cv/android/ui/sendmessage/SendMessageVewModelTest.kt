@@ -66,7 +66,7 @@ class SendMessageVewModelTest : BaseViewModelTest() {
 
         verify { cvApiService.postSendMessage(testValidSendMessageRequest) }
 
-        viewModel.sentMessageVisibile.test()
+        viewModel.sentMessageVisible.test()
             .awaitValue()
             .assertHasValue()
             .assertValue(true)
@@ -76,7 +76,7 @@ class SendMessageVewModelTest : BaseViewModelTest() {
             .assertHasValue()
             .assertValue(false)
 
-        viewModel.errorMessageVisibile.test()
+        viewModel.errorMessageVisible.test()
             .awaitValue()
             .assertHasValue()
             .assertValue(false)
@@ -90,7 +90,7 @@ class SendMessageVewModelTest : BaseViewModelTest() {
 
         viewModel.sendMessage()
 
-        viewModel.sentMessageVisibile.test()
+        viewModel.sentMessageVisible.test()
             .awaitValue()
             .assertHasValue()
             .assertValue(false)
@@ -100,7 +100,7 @@ class SendMessageVewModelTest : BaseViewModelTest() {
             .assertHasValue()
             .assertValue(true)
 
-        viewModel.errorMessageVisibile.test()
+        viewModel.errorMessageVisible.test()
             .awaitValue()
             .assertHasValue()
             .assertValue(true)
@@ -114,7 +114,7 @@ class SendMessageVewModelTest : BaseViewModelTest() {
 
         viewModel.sendMessage()
 
-        viewModel.sentMessageVisibile.test()
+        viewModel.sentMessageVisible.test()
             .awaitValue()
             .assertHasValue()
             .assertValue(false)
@@ -124,7 +124,7 @@ class SendMessageVewModelTest : BaseViewModelTest() {
             .assertHasValue()
             .assertValue(true)
 
-        viewModel.errorMessageVisibile.test()
+        viewModel.errorMessageVisible.test()
             .awaitValue()
             .assertHasValue()
             .assertValue(true)
@@ -138,7 +138,7 @@ class SendMessageVewModelTest : BaseViewModelTest() {
 
         viewModel.sendMessage()
 
-        viewModel.errorMessageVisibile.test()
+        viewModel.errorMessageVisible.test()
             .awaitValue()
             .assertHasValue()
             .assertValue(true)
@@ -148,7 +148,7 @@ class SendMessageVewModelTest : BaseViewModelTest() {
 
         viewModel.sendMessage()
 
-        viewModel.sentMessageVisibile.test()
+        viewModel.sentMessageVisible.test()
             .awaitValue()
             .assertHasValue()
             .assertValue(true)
@@ -158,7 +158,7 @@ class SendMessageVewModelTest : BaseViewModelTest() {
             .assertHasValue()
             .assertValue(false)
 
-        viewModel.errorMessageVisibile.test()
+        viewModel.errorMessageVisible.test()
             .awaitValue()
             .assertHasValue()
             .assertValue(false)

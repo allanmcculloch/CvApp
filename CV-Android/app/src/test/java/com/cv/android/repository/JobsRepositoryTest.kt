@@ -61,14 +61,14 @@ class JobsRepositoryTest {
     val sampleDataApi =
 
         listOf(
-            Job("Company1", "Title1","Description1","period1","location1"),
-            Job("Company2", "Title2","Description2","period2","location2"),
-            Job("Company3", "Title3","Description3","period3","location3")
+            Job("Company1", "Title1","Description1","period1","location1","http://www.someurl.com/image1.png"),
+            Job("Company2", "Title2","Description2","period2","location2", "http://www.someurl.com/image2.png"),
+            Job("Company3", "Title3","Description3","period3","location3", "http://www.someurl.com/image3.png")
         )
 
     val sampleDataInCache =
         listOf(
-            Job("Company4", "Title4","Description4","period4","location6"),
-            Job("Company5", "Title5","Description5","period5","location6")
+            Job("Company4", "Title4","Description4","period4","location6", "http://www.someurl.com/image4.png"),
+            Job("Company5", "Title5","Description5","period5","location6", "http://www.someurl.com/image5.png")
         )
 }

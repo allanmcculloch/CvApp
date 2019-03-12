@@ -12,9 +12,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingRight="20dp"
-            android:paddingLeft="20dp"
-            android:paddingTop="10dp"
+            android:paddingTop="30dp"
             android:paddingBottom="10dp">
+
+        <ImageView android:layout_width="50dp"
+                   android:layout_height="50dp"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toTopOf="parent"
+                   android:layout_marginLeft="0dp"
+                   android:layout_marginTop="0dp"
+                   app:imageUrl="@{viewModel.imageUrl}"
+        />
 
         <TextView
                 android:id="@+id/job_company"
@@ -22,6 +30,7 @@
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 app:text="@{viewModel.company}"
+                android:layout_marginLeft="70dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -31,6 +40,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_marginLeft="70dp"
                 app:text="@{viewModel.title}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -41,6 +51,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_marginLeft="70dp"
                 app:text="@{viewModel.location}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -51,6 +62,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_marginLeft="70dp"
                 app:text="@{viewModel.period}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -61,6 +73,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_marginLeft="70dp"
                 app:text="@{viewModel.description}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

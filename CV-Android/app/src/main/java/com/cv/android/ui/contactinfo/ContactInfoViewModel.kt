@@ -47,6 +47,6 @@ class ContactInfoViewModel(private val repository: ContactInfoRepository) : View
 
     override fun onCleared() {
         super.onCleared()
-        subscription?.dispose()
+        subscription.dispose()
     }
 }

@@ -5,5 +5,6 @@ data class Job(
     var title : String,
     var description : String? = null,
     var period : String? = null,
-    var location : String?
+    var location : String?,
+    var imageUrl : String?
 )

@@ -39,6 +39,6 @@ class JobListViewModel(private val repository: JobsRepository) : ViewModel() {
 
     override fun onCleared() {
         super.onCleared()
-        subscription?.dispose()
+        subscription.dispose()
     }
 }

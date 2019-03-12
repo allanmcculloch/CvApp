@@ -41,7 +41,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="@{viewModel.errorMessageVisibile ? View.VISIBLE : View.GONE}"/>
+                android:visibility="@{viewModel.errorMessageVisible ? View.VISIBLE : View.GONE}"/>
 
         <TextView
                 android:id="@+id/successMessage"
@@ -55,7 +55,7 @@
                 android:textColor="@android:color/holo_green_dark"
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="20dp"
-                android:visibility="@{viewModel.sentMessageVisibile ? View.VISIBLE : View.GONE}"/>
+                android:visibility="@{safeUnbox(viewModel.sentMessageVisible) ? View.VISIBLE : View.GONE}"/>
 
         <EditText
                 android:id="@+id/nameText"
@@ -70,7 +70,7 @@
                 android:text="@={viewModel.name}"
                 android:layout_marginLeft="20dp"
                 android:hint="@string/your_name"
-                android:visibility="@{viewModel.formVisible ? View.VISIBLE : View.GONE}" />
+                android:visibility="@{safeUnbox(viewModel.formVisible) ? View.VISIBLE : View.GONE}" />
 
         <EditText
                 android:id="@+id/email"
