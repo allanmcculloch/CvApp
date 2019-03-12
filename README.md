@@ -38,3 +38,12 @@ Simple backend API on Firebase with endpoints for:
 - GET /jobs - Get a list of jobs 
 - POST /sendmessage - Send a message
 - GET /photos - get a list of photos (stored on Firebase Storage)
+
+
+Future improvements / ToDos
+
+- Improve UI styling and extract
+- Use Bottom TabBar instead of drawer
+- In memory mock http server for UI Tests 
+- Navigate to detail fragment on jobs / pics 
+
