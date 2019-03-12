@@ -16,10 +16,10 @@ interface CvApiEndpoints {
     @GET("/jobs")
     fun getJobs(): Observable<List<Job>>
 
-    @GET("/contactDetails")
+    @GET("/contactdetails")
     fun getContactInfo(): Observable<ContactInfo>
 
-    @POST("/sendMessage")
+    @POST("/sendmessage")
     fun postSendMessage(@Body request: SendMessageRequest): Observable<Response<Unit>>
 
     @GET("/photos")

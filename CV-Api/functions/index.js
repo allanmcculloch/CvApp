@@ -52,7 +52,7 @@ exports.jobs = functions.region('europe-west1').https.onRequest((request, respon
 });
 
 
-exports.contactDetails = functions.region('europe-west1').https.onRequest((request, response) => {
+exports.contactdetails = functions.region('europe-west1').https.onRequest((request, response) => {
 
 	//TODO: extract to DB or external file
 	var contactDetails = 
@@ -70,7 +70,7 @@ exports.contactDetails = functions.region('europe-west1').https.onRequest((reque
 });
 
 
-exports.sendMessage = functions.region('europe-west1').https.onRequest((request, response) => {
+exports.sendmessage = functions.region('europe-west1').https.onRequest((request, response) => {
 
 	 var requestBody = request.body
 

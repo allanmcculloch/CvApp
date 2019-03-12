@@ -34,7 +34,7 @@ And UI testing using:
 
 Simple backend API on Firebase with endpoints for:
 
-- GET /contactDetails - Get contact information
+- GET /contactdetails - Get contact information
 - GET /jobs - Get a list of jobs 
-- POST /sendMessage - Send a message
+- POST /sendmessage - Send a message
 - GET /photos - get a list of photos (stored on Firebase Storage)
