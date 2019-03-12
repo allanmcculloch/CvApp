@@ -23,7 +23,6 @@ class PhotosTests {
 
     @Test
     fun checkContactDetailsLoad() {
-
         //TODO: handle network delay with Rx Idling Resource or mock server
 
         photosScreen.checkPositionHasText("Ben Wyvis, Scotland (Final Munro)",0)

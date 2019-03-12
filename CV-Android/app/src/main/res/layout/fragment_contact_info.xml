@@ -4,11 +4,11 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools">
 
-<data>
-    <variable
-            name="viewModel"
-            type="com.cv.android.ui.contactinfo.ContactInfoViewModel" />
-</data>
+    <data>
+        <variable
+                name="viewModel"
+                type="com.cv.android.ui.contactinfo.ContactInfoViewModel"/>
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -26,7 +26,7 @@
                 android:textSize="28sp"
                 android:text="@string/contact_details"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
                 android:id="@+id/name"
@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:text="@{viewModel.name}"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/header"/>
@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:text="@{viewModel.email}"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/name"/>
 
@@ -55,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:text="@{viewModel.address}"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/email"/>
 
@@ -66,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:text="@{viewModel.mobile}"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/address"/>
 
@@ -76,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:text="@{viewModel.webAddress}"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/mobile"/>
 
@@ -84,11 +84,9 @@
                    android:layout_height="250dp"
                    app:layout_constraintStart_toStartOf="parent"
                    app:layout_constraintTop_toBottomOf="@id/webAddress"
-                   android:layout_marginLeft="20dp"
+                   android:layout_marginStart="20dp"
                    android:layout_marginTop="30dp"
-                   app:imageUrl="@{viewModel.imageUrl}"
-        />
-
+                   app:imageUrl="@{viewModel.imageUrl}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

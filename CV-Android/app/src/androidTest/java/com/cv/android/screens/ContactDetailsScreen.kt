@@ -15,27 +15,22 @@ internal class ContactDetailsScreen {
     private val webAddress = R.id.webAddress
 
     fun checkNameHasText(text : String) {
-
         name.checkHasText(text)
     }
 
     fun checEmailHasText(text : String) {
-
         email.checkHasText(text)
     }
 
     fun checkAddressHasText(text : String) {
-
         address.checkHasText(text)
     }
 
     fun checkMobileHasText(text : String) {
-
         mobile.checkHasText(text)
     }
 
     fun checkWebAddressHasText(text : String) {
-
         webAddress.checkHasText(text)
     }
 

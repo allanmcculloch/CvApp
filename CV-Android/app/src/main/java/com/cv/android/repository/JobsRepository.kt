@@ -9,7 +9,6 @@ class JobsRepository(private val cvApiService : CvApiService) {
     var cache : List<Job> = listOf()
 
     fun getJobs() : Observable<List<Job>> {
-
         if (cache.isEmpty()) {
             return cvApiService.getJobs()
                 .doOnNext { cache = it }

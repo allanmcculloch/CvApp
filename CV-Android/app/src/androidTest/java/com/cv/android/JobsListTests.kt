@@ -23,7 +23,6 @@ class JobsListTests {
 
     @Test
     fun checkContactDetailsLoad() {
-
         //TODO: handle network delay with Rx Idling Resource or mock server
 
         jobsListScreen.checkPositionHasText("Just Eat Plc.",0)

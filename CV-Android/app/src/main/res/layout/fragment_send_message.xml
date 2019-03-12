@@ -4,9 +4,9 @@
     <data>
         <variable
                 name="viewModel"
-                type="com.cv.android.ui.sendmessage.SendMessageViewModel" />
+                type="com.cv.android.ui.sendmessage.SendMessageViewModel"/>
 
-        <import type="android.view.View" />
+        <import type="android.view.View"/>
 
     </data>
 
@@ -18,15 +18,15 @@
             android:layout_marginLeft="20dp">
 
         <TextView
-            android:id="@+id/header"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="28sp"
-            android:text="@string/send_message"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginLeft="20dp"/>
+                android:id="@+id/header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="28sp"
+                android:text="@string/send_message"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginLeft="20dp"/>
 
         <TextView
                 android:id="@+id/errorMessage"
@@ -70,7 +70,7 @@
                 android:text="@={viewModel.name}"
                 android:layout_marginLeft="20dp"
                 android:hint="@string/your_name"
-                android:visibility="@{safeUnbox(viewModel.formVisible) ? View.VISIBLE : View.GONE}" />
+                android:visibility="@{safeUnbox(viewModel.formVisible) ? View.VISIBLE : View.GONE}"/>
 
         <EditText
                 android:id="@+id/email"
@@ -106,20 +106,19 @@
         />
 
         <com.google.android.material.button.MaterialButton android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/sendMessageButton"
-                android:minWidth="100dp"
-                android:minHeight="50dp"
-                app:layout_constraintStart_toStartOf="parent"
-                android:textAppearance="@color/colorAccent"
-                style="@style/SendButton"
-                app:layout_constraintTop_toBottomOf="@+id/message"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
-                android:text="@string/send_message_button"
-                android:onClick="@{() -> viewModel.sendMessage()}"
-                android:visibility="@{safeUnbox(viewModel.formVisible) ? View.VISIBLE : View.GONE}"
-        />
+                                                           android:layout_height="wrap_content"
+                                                           android:id="@+id/sendMessageButton"
+                                                           android:minWidth="100dp"
+                                                           android:minHeight="50dp"
+                                                           app:layout_constraintStart_toStartOf="parent"
+                                                           android:textAppearance="@color/colorAccent"
+                                                           style="@style/SendButton"
+                                                           app:layout_constraintTop_toBottomOf="@+id/message"
+                                                           android:layout_marginTop="20dp"
+                                                           android:layout_marginLeft="20dp"
+                                                           android:text="@string/send_message_button"
+                                                           android:onClick="@{() -> viewModel.sendMessage()}"
+                                                           android:visibility="@{safeUnbox(viewModel.formVisible) ? View.VISIBLE : View.GONE}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

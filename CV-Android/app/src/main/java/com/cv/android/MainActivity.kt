@@ -17,7 +17,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setSupportActionBar(toolbar)
 
         fab.setOnClickListener {
-
             findNavController(R.id.nav_host_fragment).navigate(R.id.contactFragment)
             fab?.hide()
         }
@@ -42,11 +41,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-
         fab.show()
 
         when (item.itemId) {
-
             R.id.nav_contact_info -> {
                 findNavController(R.id.nav_host_fragment).navigate(R.id.contactInfoFragment)
             }
@@ -61,7 +58,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 findNavController(R.id.nav_host_fragment).navigate(R.id.contactFragment)
                 fab?.hide()
             }
-
         }
 
         drawer_layout.closeDrawer(GravityCompat.START)

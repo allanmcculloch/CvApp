@@ -9,7 +9,6 @@ class ContactInfoRepository(private val cvApiService : CvApiService) {
     var cache : ContactInfo? = null
 
     fun getContactInfo() : Observable<ContactInfo?> {
-
         if (cache == null) {
             return cvApiService.getContactInfo()
                 .doOnNext { cache = it }

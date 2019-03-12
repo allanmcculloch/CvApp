@@ -31,7 +31,6 @@ internal class SendMessageScreen {
 
     fun clickSentButton() {
         onView(withId(sendMessageButton)).perform(ViewActions.closeSoftKeyboard())
-
         sendMessageButton.click()
     }
 

@@ -9,7 +9,6 @@ class PhotosRepository(private val cvApiService : CvApiService) {
     var cache : List<Photo> = listOf()
 
     fun getPhotos() : Observable<List<Photo>> {
-
         if (cache.isEmpty()) {
             return cvApiService.getPhotos()
                 .doOnNext { cache = it }

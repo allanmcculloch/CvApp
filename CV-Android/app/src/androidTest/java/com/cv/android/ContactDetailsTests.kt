@@ -23,9 +23,7 @@ class ContactDetailsTests {
 
     @Test
     fun checkContactDetailsLoad() {
-
         //TODO: handle network delay with Rx Idling Resource or mock server
-        //contactDetailsScreen.hasLoadedAndNameHasText("Allan McCulloch")
 
         contactDetailsScreen.checkNameHasText("Allan McCulloch")
         contactDetailsScreen.checEmailHasText("allan@hotcross.co.uk")

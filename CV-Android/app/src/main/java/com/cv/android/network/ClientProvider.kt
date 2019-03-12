@@ -14,7 +14,6 @@ class ClientProvider {
     val client: Retrofit = createClient()
 
     private fun createClient(): Retrofit {
-
         val moshiBuilder = Moshi.Builder()
 
         return Retrofit.Builder()
@@ -27,11 +26,9 @@ class ClientProvider {
             .build()
     }
 
-    private fun makeHttpClient(): OkHttpClient {
-
-        return OkHttpClient.Builder()
+    private fun makeHttpClient() =
+         OkHttpClient.Builder()
             .connectTimeout(60, TimeUnit.SECONDS)
             .readTimeout(60, TimeUnit.SECONDS)
             .build()
-    }
 }

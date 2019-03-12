@@ -25,5 +25,4 @@ val cvModule = module {
 
     single { CvApiService(get()) }
     single { ClientProvider() }
-
 }

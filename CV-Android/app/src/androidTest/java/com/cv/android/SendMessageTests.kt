@@ -23,7 +23,6 @@ class SendMessageTests {
 
     @Test
     fun sendMessageSuccess() {
-
         //TODO: handle network delay with Rx Idling Resource or mock server
 
         sendMessageScreen.typeName("Allan McCulloch")
@@ -37,7 +36,6 @@ class SendMessageTests {
 
     @Test
     fun sendMessageFailed() {
-
         //TODO: handle network delay with Rx Idling Resource or mock server
 
         sendMessageScreen.typeName("Allan McCulloch")
