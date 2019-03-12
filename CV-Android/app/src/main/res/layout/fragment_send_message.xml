@@ -10,18 +10,12 @@
 
     </data>
 
-
-
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="50dp"
             android:layout_marginLeft="20dp">
-
-
-
-
 
         <TextView
             android:id="@+id/header"
@@ -34,9 +28,6 @@
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginLeft="20dp"/>
 
-
-
-
         <TextView
                 android:id="@+id/errorMessage"
                 android:layout_width="wrap_content"
@@ -48,10 +39,9 @@
                 app:layout_constraintTop_toBottomOf="@id/header"
                 android:textColor="@android:color/holo_red_dark"
                 android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="@{viewModel.errorMessageVisibile ? View.VISIBLE : View.GONE}"
-        />
-
+                android:visibility="@{viewModel.errorMessageVisibile ? View.VISIBLE : View.GONE}"/>
 
         <TextView
                 android:id="@+id/successMessage"
@@ -67,7 +57,6 @@
                 android:layout_marginLeft="20dp"
                 android:visibility="@{viewModel.sentMessageVisibile ? View.VISIBLE : View.GONE}"/>
 
-
         <EditText
                 android:id="@+id/nameText"
                 android:layout_width="wrap_content"
@@ -81,9 +70,7 @@
                 android:text="@={viewModel.name}"
                 android:layout_marginLeft="20dp"
                 android:hint="@string/your_name"
-                android:visibility="@{viewModel.formVisible ? View.VISIBLE : View.GONE}"
-
-        />
+                android:visibility="@{viewModel.formVisible ? View.VISIBLE : View.GONE}" />
 
         <EditText
                 android:id="@+id/email"
@@ -118,7 +105,6 @@
                 android:visibility="@{viewModel.formVisible ? View.VISIBLE : View.GONE}"
         />
 
-
         <com.google.android.material.button.MaterialButton android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/sendMessageButton"
@@ -134,8 +120,6 @@
                 android:onClick="@{() -> viewModel.sendMessage()}"
                 android:visibility="@{viewModel.formVisible ? View.VISIBLE : View.GONE}"
         />
-
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

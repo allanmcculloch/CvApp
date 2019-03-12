@@ -5,5 +5,6 @@ data class ContactInfo(
     var addressLines : List<String>? = null,
     var mobileContact : String? = "",
     var emailAddress : String? = "",
-    var webAddress : String? = ""
+    var webAddress : String? = "",
+    var imageUrl : String? = ""
 )

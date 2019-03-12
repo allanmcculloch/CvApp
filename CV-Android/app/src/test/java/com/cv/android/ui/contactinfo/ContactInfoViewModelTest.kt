@@ -60,6 +60,11 @@ class ContactInfoViewModelTest : BaseViewModelTest() {
             .awaitValue()
             .assertHasValue()
             .assertValue(testContactInfo.emailAddress)
+
+        viewModel.imageUrl.test()
+            .awaitValue()
+            .assertHasValue()
+            .assertValue(testContactInfo.imageUrl)
     }
 
     fun createViewModel() = ContactInfoViewModel(contactInfoRepository)
@@ -71,5 +76,6 @@ class ContactInfoViewModelTest : BaseViewModelTest() {
             listOf("Address Line 1", "Line 2", "Line 3"),
             "0712345678",
             "test@test.com",
-            "http://www.someaddress.com")
+            "http://www.someaddress.com",
+            "http://www.someaddress.com/someimage.jpg")
 }
