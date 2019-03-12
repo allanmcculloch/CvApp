@@ -1,6 +1,5 @@
 package com.cv.android.ui.sendmessage
 
-import android.text.BoringLayout
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.cv.android.repository.remote.CvApiService
@@ -15,16 +14,16 @@ class SendMessageViewModel(private val cvApiService: CvApiService) : ViewModel()
     val email : MutableLiveData<String> = MutableLiveData()
     val message : MutableLiveData<String> = MutableLiveData()
 
-    val errorMessageVisibile : MutableLiveData<Boolean> = MutableLiveData()
-    val sentMessageVisibile : MutableLiveData<Boolean> = MutableLiveData()
+    val errorMessageVisible : MutableLiveData<Boolean> = MutableLiveData()
+    val sentMessageVisible : MutableLiveData<Boolean> = MutableLiveData()
     val formVisible : MutableLiveData<Boolean> = MutableLiveData()
 
     private lateinit var subscription: Disposable
 
     init {
         formVisible.value = true
-        sentMessageVisibile.value = false
-        errorMessageVisibile.value = false
+        sentMessageVisible.value = false
+        errorMessageVisible.value = false
     }
 
     fun sendMessage() {
@@ -36,20 +35,20 @@ class SendMessageViewModel(private val cvApiService: CvApiService) : ViewModel()
 
                 if (it.isSuccessful) {
                     formVisible.value = false
-                    sentMessageVisibile.value = true
-                    errorMessageVisibile.value = false
+                    sentMessageVisible.value = true
+                    errorMessageVisible.value = false
                 }
                 else {
-                    errorMessageVisibile.value = true
+                    errorMessageVisible.value = true
                 }
 
             }, {
-                errorMessageVisibile.value = true
+                errorMessageVisible.value = true
             })
     }
 
     override fun onCleared() {
         super.onCleared()
-        subscription?.dispose()
+        subscription.dispose()
     }
 }

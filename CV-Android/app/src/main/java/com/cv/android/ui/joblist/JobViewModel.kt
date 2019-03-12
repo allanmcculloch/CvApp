@@ -10,6 +10,7 @@ class JobViewModel {
     val description : MutableLiveData<String> = MutableLiveData()
     val location : MutableLiveData<String> = MutableLiveData()
     val period : MutableLiveData<String> = MutableLiveData()
+    val imageUrl : MutableLiveData<String> = MutableLiveData()
 
     fun bind(job : Job) {
 
@@ -18,5 +19,6 @@ class JobViewModel {
         description.value = job.description
         location.value = job.location
         period.value = job.period
+        imageUrl.value = job.imageUrl
     }
 }
