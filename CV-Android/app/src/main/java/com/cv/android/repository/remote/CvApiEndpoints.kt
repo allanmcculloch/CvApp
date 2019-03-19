@@ -10,9 +10,7 @@ import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
 
-
 interface CvApiEndpoints {
-
     @GET("/jobs")
     fun getJobs(): Observable<List<Job>>
 
