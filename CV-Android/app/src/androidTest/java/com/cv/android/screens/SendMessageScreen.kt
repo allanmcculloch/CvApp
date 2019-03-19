@@ -9,7 +9,6 @@ import com.cv.android.testhelpers.click
 import com.cv.android.testhelpers.typeText
 
 internal class SendMessageScreen {
-
     private val nameText = R.id.nameText
     private val emailText = R.id.email
     private val messageText = R.id.message

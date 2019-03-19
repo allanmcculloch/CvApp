@@ -11,7 +11,6 @@ import com.cv.android.databinding.FragmentContactInfoBinding
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class ContactInfoFragment : Fragment() {
-
     private val viewModel: ContactInfoViewModel by viewModel()
 
     override fun onCreateView(

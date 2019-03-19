@@ -6,7 +6,6 @@ import com.jraska.livedata.test
 import org.junit.Test
 
 class PhotoViewModelTest : BaseViewModelTest() {
-
     @Test
     fun testReturnsCorrectValues() {
 
@@ -19,7 +18,6 @@ class PhotoViewModelTest : BaseViewModelTest() {
     }
 
     fun createViewModel() = PhotoViewModel()
-
 
     val photoTestData = Photo("test1", "http://www.someurl.comm/image1.png")
 }

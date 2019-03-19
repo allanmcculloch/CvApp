@@ -9,7 +9,6 @@ import io.reactivex.Observable
 import retrofit2.Response
 
 class CvApiService(clientProvider: ClientProvider) {
-
     private val api = clientProvider.client.create(CvApiEndpoints::class.java)
 
     fun getContactInfo() : Observable<ContactInfo> = api.getContactInfo()
@@ -19,5 +18,4 @@ class CvApiService(clientProvider: ClientProvider) {
     fun postSendMessage(request: SendMessageRequest) : Observable<Response<Unit>> = api.postSendMessage(request)
 
     fun getPhotos() : Observable<List<Photo>> = api.getPhotos()
-
 }

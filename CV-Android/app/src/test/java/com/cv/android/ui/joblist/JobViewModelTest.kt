@@ -6,7 +6,6 @@ import com.jraska.livedata.test
 import org.junit.Test
 
 class JobViewModelTest : BaseViewModelTest() {
-
     @Test
     fun testReturnsCorrectValues() {
 
@@ -23,7 +22,6 @@ class JobViewModelTest : BaseViewModelTest() {
     }
 
     fun createViewModel() = JobViewModel()
-
 
     val jobTestData = Job("Company","Title","Description1","Period1","Location1","http://www.someurl.comm/image1.png")
 }

@@ -23,6 +23,3 @@ interface CvApiEndpoints {
     @GET("/photos")
     fun getPhotos(): Observable<List<Photo>>
 }
-
-
-

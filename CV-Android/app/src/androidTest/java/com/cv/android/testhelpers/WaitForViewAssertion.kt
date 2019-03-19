@@ -45,7 +45,6 @@ private constructor(
     }
 
     companion object {
-
         fun waitForViewAssertion(@IdRes viewId: Int, millis: Long, viewAssertion: Matcher<View>) =
             WaitForViewAssertion(viewId, millis, viewAssertion)
     }

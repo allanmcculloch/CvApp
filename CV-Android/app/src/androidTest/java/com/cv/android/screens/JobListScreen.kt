@@ -12,7 +12,6 @@ import org.hamcrest.Description
 import org.hamcrest.Matcher
 
 internal class JobListScreen {
-
     private val jobsList = R.id.jobsListRecyclerView
 
     fun checkPositionHasText(text : String, position : Int) {

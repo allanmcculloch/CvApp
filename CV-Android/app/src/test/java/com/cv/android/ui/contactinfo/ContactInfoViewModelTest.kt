@@ -11,13 +11,11 @@ import org.junit.Before
 import org.junit.Test
 
 class ContactInfoViewModelTest : BaseViewModelTest() {
-
     lateinit var viewModel : ContactInfoViewModel
     lateinit var contactInfoRepository : ContactInfoRepository
 
     @Before
     fun setUp() {
-
         contactInfoRepository = mockk(relaxed = true)
 
         every {contactInfoRepository.getContactInfo() }.returns(Observable.just(testContactInfo))
@@ -25,7 +23,6 @@ class ContactInfoViewModelTest : BaseViewModelTest() {
 
     @Test
     fun addressIsInCorrectFormat() {
-
         val expectedAddressFormat = "Address Line 1, Line 2, Line 3"
 
         viewModel = createViewModel()
@@ -38,7 +35,6 @@ class ContactInfoViewModelTest : BaseViewModelTest() {
 
     @Test
     fun checkFields() {
-
         viewModel = createViewModel()
 
         viewModel.name.test()
@@ -70,7 +66,6 @@ class ContactInfoViewModelTest : BaseViewModelTest() {
     fun createViewModel() = ContactInfoViewModel(contactInfoRepository)
 
     val testContactInfo : ContactInfo =
-
         ContactInfo(
             "Test 11",
             listOf("Address Line 1", "Line 2", "Line 3"),

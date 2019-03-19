@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.cv.android.R
-import com.cv.android.databinding.FragmentPhotosBinding
 import com.cv.android.databinding.ItemPhotoBinding
 import com.cv.models.Photo
 

@@ -9,7 +9,6 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 
 class ClientProvider {
-
     private val okHttpClient: OkHttpClient = makeHttpClient()
     val client: Retrofit = createClient()
 

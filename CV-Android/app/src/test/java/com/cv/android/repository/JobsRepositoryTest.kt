@@ -9,9 +9,7 @@ import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 
-
 class JobsRepositoryTest {
-
     private lateinit var cvApiServiceMock: CvApiService
     private lateinit var jobsRepository : JobsRepository
 
@@ -23,7 +21,6 @@ class JobsRepositoryTest {
 
     @Test
     fun when_emptycache_callapi_returnsApiData() {
-
         every { cvApiServiceMock.getJobs() }.returns(Observable.just(sampleDataApi))
 
         val jobsReturned = jobsRepository.getJobs()
@@ -33,7 +30,6 @@ class JobsRepositoryTest {
 
     @Test
     fun when_hasCache_returnsCache_thenApi() {
-
         every { cvApiServiceMock.getJobs() }.returns(Observable.just(sampleDataApi))
 
         jobsRepository.cache = sampleDataInCache
@@ -46,7 +42,6 @@ class JobsRepositoryTest {
 
     @Test
     fun when_nocache_updatesCacheFromApi() {
-
         jobsRepository.cache = listOf()
 
         every { cvApiServiceMock.getJobs() }.returns(Observable.just(sampleDataApi))

@@ -12,7 +12,6 @@ import org.junit.Before
 import org.junit.Test
 
 class PhotosViewModelTest : BaseViewModelTest() {
-
     lateinit var viewModel : PhotosViewModel
     lateinit var photosRepository : PhotosRepository
 

@@ -14,7 +14,6 @@ import kotlinx.android.synthetic.main.fragment_job_list.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class JobListFragment : Fragment() {
-
     private val viewModel: JobListViewModel by viewModel()
 
     override fun onCreateView(

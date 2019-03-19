@@ -9,8 +9,6 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
 class JobListViewModel(private val repository: JobsRepository) : ViewModel() {
-
-
     val jobListAdapter: JobListAdapter = JobListAdapter()
 
     private lateinit var subscription: Disposable
@@ -20,7 +18,6 @@ class JobListViewModel(private val repository: JobsRepository) : ViewModel() {
     }
 
     private fun loadData() {
-
         subscription = repository.getJobs()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -32,7 +29,6 @@ class JobListViewModel(private val repository: JobsRepository) : ViewModel() {
     }
 
     private fun onFetchedList(jobList : List<Job>) {
-
         jobListAdapter.updateList(jobList)
 
     }

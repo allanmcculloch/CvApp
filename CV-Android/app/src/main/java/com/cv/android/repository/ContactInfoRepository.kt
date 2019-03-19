@@ -5,7 +5,6 @@ import com.cv.models.ContactInfo
 import io.reactivex.Observable
 
 class ContactInfoRepository(private val cvApiService : CvApiService) {
-
     var cache : ContactInfo? = null
 
     fun getContactInfo() : Observable<ContactInfo?> {

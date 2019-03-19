@@ -9,9 +9,7 @@ import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 
-
 class PhotosRepositoryTest {
-
     private lateinit var cvApiServiceMock: CvApiService
     private lateinit var photosRepository : PhotosRepository
 
@@ -23,7 +21,6 @@ class PhotosRepositoryTest {
 
     @Test
     fun when_emptycache_callapi_returnsApiData() {
-
         every { cvApiServiceMock.getPhotos() }.returns(Observable.just(sampleDataApi))
 
         val photosReturned = photosRepository.getPhotos()
@@ -33,7 +30,6 @@ class PhotosRepositoryTest {
 
     @Test
     fun when_hasCache_returnsCache_thenApi() {
-
         every { cvApiServiceMock.getPhotos() }.returns(Observable.just(sampleDataApi))
 
         photosRepository.cache = sampleDataInCache
@@ -46,7 +42,6 @@ class PhotosRepositoryTest {
 
     @Test
     fun when_nocache_updatesCacheFromApi() {
-
         photosRepository.cache = listOf()
 
         every { cvApiServiceMock.getPhotos() }.returns(Observable.just(sampleDataApi))
@@ -59,7 +54,6 @@ class PhotosRepositoryTest {
     }
 
     val sampleDataApi =
-
         listOf(
             Photo("Test1","http://www.someurl.com/photo1.png"),
             Photo("Test2","http://www.someurl.com/photo2.png")

@@ -5,7 +5,6 @@ import com.cv.models.Photo
 import io.reactivex.Observable
 
 class PhotosRepository(private val cvApiService : CvApiService) {
-
     var cache : List<Photo> = listOf()
 
     fun getPhotos() : Observable<List<Photo>> {

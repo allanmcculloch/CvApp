@@ -5,7 +5,6 @@ import com.cv.models.Job
 import io.reactivex.Observable
 
 class JobsRepository(private val cvApiService : CvApiService) {
-
     var cache : List<Job> = listOf()
 
     fun getJobs() : Observable<List<Job>> {

@@ -8,7 +8,6 @@ import androidx.test.espresso.matcher.ViewMatchers.withText
 import com.cv.android.R
 
 internal class MenuScreen {
-
     fun openMenu() {
         onView(withId(R.id.drawer_layout)).perform(DrawerActions.open())
     }

@@ -8,7 +8,6 @@ import org.junit.Rule
 import org.junit.Test
 
 class JobsListTests {
-
     private val menuScreen = MenuScreen()
     private val jobsListScreen = JobListScreen()
 

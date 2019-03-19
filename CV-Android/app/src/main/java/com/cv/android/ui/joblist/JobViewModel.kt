@@ -4,7 +4,6 @@ import androidx.lifecycle.MutableLiveData
 import com.cv.models.Job
 
 class JobViewModel {
-
     val company : MutableLiveData<String> = MutableLiveData()
     val title : MutableLiveData<String> = MutableLiveData()
     val description : MutableLiveData<String> = MutableLiveData()
@@ -13,7 +12,6 @@ class JobViewModel {
     val imageUrl : MutableLiveData<String> = MutableLiveData()
 
     fun bind(job : Job) {
-
         company.value = job.company
         title.value = job.title
         description.value = job.description

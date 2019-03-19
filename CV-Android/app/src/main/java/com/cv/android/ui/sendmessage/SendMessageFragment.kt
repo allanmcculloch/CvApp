@@ -11,7 +11,6 @@ import com.cv.android.extensions.inflateBinding
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class SendMessageFragment : Fragment() {
-
     private val viewModel: SendMessageViewModel by viewModel()
 
     override fun onCreateView(

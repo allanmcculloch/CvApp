@@ -7,7 +7,6 @@ import com.cv.android.testhelpers.waitForMatcher
 import org.hamcrest.Matchers
 
 internal class ContactDetailsScreen {
-
     private val name = R.id.name
     private val email = R.id.email
     private val address = R.id.address

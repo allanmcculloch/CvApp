@@ -14,7 +14,6 @@ import com.cv.android.databinding.FragmentPhotosBinding
 import kotlinx.android.synthetic.main.fragment_photos.*
 
 class PhotosFragment : Fragment() {
-
     private val viewModel: PhotosViewModel by viewModel()
 
     override fun onCreateView(

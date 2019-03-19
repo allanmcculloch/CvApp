@@ -9,9 +9,7 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
 class PhotosViewModel(private val repository: PhotosRepository) : ViewModel() {
-
     val photosAdaptor: PhotosAdapter = PhotosAdapter()
-
     private lateinit var subscription: Disposable
 
     init {
@@ -19,7 +17,6 @@ class PhotosViewModel(private val repository: PhotosRepository) : ViewModel() {
     }
 
     private fun loadData() {
-
         subscription = repository.getPhotos()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

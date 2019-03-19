@@ -8,7 +8,6 @@ import org.junit.Rule
 import org.junit.Test
 
 class SendMessageTests {
-
     private val menuScreen = MenuScreen()
     private val sendMessageScreen = SendMessageScreen()
 

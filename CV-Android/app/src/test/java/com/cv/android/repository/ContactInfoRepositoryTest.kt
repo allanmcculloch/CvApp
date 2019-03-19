@@ -9,9 +9,7 @@ import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.Before
 
-
 class ContactInfoRepositoryTest {
-
     private lateinit var cvApiServiceMock: CvApiService
     private lateinit var contactInfoRepository : ContactInfoRepository
 
@@ -23,7 +21,6 @@ class ContactInfoRepositoryTest {
 
     @Test
     fun when_emptycache_callapi_returnsApiData() {
-
         val apiContactInfo = ContactInfo("John Smith")
 
         every { cvApiServiceMock.getContactInfo() }.returns(Observable.just(apiContactInfo))
@@ -35,7 +32,6 @@ class ContactInfoRepositoryTest {
 
     @Test
     fun when_hasCache_returnsCache_thenApi() {
-
         val cachedContactInfo = ContactInfo("Mr Cached")
         val apiContactInfo = ContactInfo("Mr Api")
 
@@ -51,7 +47,6 @@ class ContactInfoRepositoryTest {
 
     @Test
     fun when_nocache_updatesCacheFromApi() {
-
         val apiContactInfo = ContactInfo("Mr Api")
 
         contactInfoRepository.cache = null

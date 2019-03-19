@@ -15,7 +15,6 @@ import org.junit.Test
 import retrofit2.Response
 
 class SendMessageVewModelTest : BaseViewModelTest() {
-
     lateinit var viewModel : SendMessageViewModel
     lateinit var cvApiService: CvApiService
 
@@ -27,22 +26,18 @@ class SendMessageVewModelTest : BaseViewModelTest() {
     }
 
     private fun mockSuccessfulResponse() {
-
         every {cvApiService.postSendMessage(testValidSendMessageRequest) }.returns(Observable.just(Response.success(Unit)))
     }
 
     private fun mockUnsuccessfulServerErrorResponse() {
-
         every {cvApiService.postSendMessage(testValidSendMessageRequest) }.returns(Observable.just(Response.error(500, ResponseBody.create(
             MediaType.get("application/json"),""))))
     }
 
     private fun mockUnsuccessfulRequestResponse() {
-
         every {cvApiService.postSendMessage(testBadSendMessageRequest) }.returns(Observable.just(Response.error(403, ResponseBody.create(
             MediaType.get("application/json"),""))))
     }
-
 
     private fun setInvalidFieldValues() {
         viewModel.name.value =  testBadSendMessageRequest.name
@@ -58,7 +53,6 @@ class SendMessageVewModelTest : BaseViewModelTest() {
 
     @Test
     fun sendMessageSuccessful() {
-
         setValidFieldValues()
         mockSuccessfulResponse()
 
@@ -84,7 +78,6 @@ class SendMessageVewModelTest : BaseViewModelTest() {
 
     @Test
     fun sendMessageUnsuccessfulServerError() {
-
         setValidFieldValues()
         mockUnsuccessfulServerErrorResponse()
 
@@ -108,7 +101,6 @@ class SendMessageVewModelTest : BaseViewModelTest() {
 
     @Test
     fun sendMessageUnsuccessfulBadRequest() {
-
         setInvalidFieldValues()
         mockUnsuccessfulRequestResponse()
 
@@ -132,7 +124,6 @@ class SendMessageVewModelTest : BaseViewModelTest() {
 
     @Test
     fun sendMessageFailThenSuccess() {
-
         setInvalidFieldValues()
         mockUnsuccessfulRequestResponse()
 

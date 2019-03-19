@@ -4,7 +4,6 @@ import androidx.lifecycle.MutableLiveData
 import com.cv.models.Photo
 
 class PhotoViewModel {
-
     val title : MutableLiveData<String> = MutableLiveData()
     val imageUrl : MutableLiveData<String> = MutableLiveData()
 

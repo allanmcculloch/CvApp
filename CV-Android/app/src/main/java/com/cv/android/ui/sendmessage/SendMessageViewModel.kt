@@ -9,7 +9,6 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
 class SendMessageViewModel(private val cvApiService: CvApiService) : ViewModel() {
-
     val name : MutableLiveData<String> = MutableLiveData()
     val email : MutableLiveData<String> = MutableLiveData()
     val message : MutableLiveData<String> = MutableLiveData()
@@ -27,7 +26,6 @@ class SendMessageViewModel(private val cvApiService: CvApiService) : ViewModel()
     }
 
     fun sendMessage() {
-
         subscription = cvApiService.postSendMessage(SendMessageRequest(name.value ?: "", email.value ?: "", message.value ?: ""))
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
