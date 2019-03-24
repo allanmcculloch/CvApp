@@ -2,6 +2,7 @@ package com.cv.android.ui.contactinfo
 
 import com.cv.android.repository.ContactInfoRepository
 import com.cv.android.ui.BaseViewModelTest
+import com.cv.android.usecases.GetContactInfoUseCase
 import com.cv.models.ContactInfo
 import com.jraska.livedata.test
 import io.mockk.every
@@ -12,13 +13,13 @@ import org.junit.Test
 
 class ContactInfoViewModelTest : BaseViewModelTest() {
     lateinit var viewModel : ContactInfoViewModel
-    lateinit var contactInfoRepository : ContactInfoRepository
+    lateinit var getContactInfoUseCase: GetContactInfoUseCase
 
     @Before
     fun setUp() {
-        contactInfoRepository = mockk(relaxed = true)
+        getContactInfoUseCase = mockk(relaxed = true)
 
-        every {contactInfoRepository.getContactInfo() }.returns(Observable.just(testContactInfo))
+        every {getContactInfoUseCase.execute() }.returns(Observable.just(testContactInfo))
     }
 
     @Test
@@ -63,7 +64,7 @@ class ContactInfoViewModelTest : BaseViewModelTest() {
             .assertValue(testContactInfo.imageUrl)
     }
 
-    fun createViewModel() = ContactInfoViewModel(contactInfoRepository)
+    fun createViewModel() = ContactInfoViewModel(getContactInfoUseCase)
 
     val testContactInfo : ContactInfo =
         ContactInfo(

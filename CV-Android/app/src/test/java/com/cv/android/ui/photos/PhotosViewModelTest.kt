@@ -3,6 +3,7 @@ package com.cv.android.ui.photos
 
 import com.cv.android.repository.PhotosRepository
 import com.cv.android.ui.BaseViewModelTest
+import com.cv.android.usecases.GetPhotosUseCase
 import com.cv.models.Photo
 import io.mockk.every
 import io.mockk.mockk
@@ -13,14 +14,13 @@ import org.junit.Test
 
 class PhotosViewModelTest : BaseViewModelTest() {
     lateinit var viewModel : PhotosViewModel
-    lateinit var photosRepository : PhotosRepository
+    lateinit var getPhotosUseCase : GetPhotosUseCase
 
     @Before
     fun setUp() {
+        getPhotosUseCase = mockk(relaxed = true)
 
-        photosRepository = mockk(relaxed = true)
-
-        every {photosRepository.getPhotos() }.returns(Observable.just(sampleData))
+        every {getPhotosUseCase.execute() }.returns(Observable.just(sampleData))
     }
 
     @Test
@@ -31,7 +31,7 @@ class PhotosViewModelTest : BaseViewModelTest() {
         assertEquals(viewModel.photosAdaptor.itemCount, sampleData.count())
     }
 
-    fun createViewModel() = PhotosViewModel(photosRepository)
+    fun createViewModel() = PhotosViewModel(getPhotosUseCase)
 
     val sampleData =
 

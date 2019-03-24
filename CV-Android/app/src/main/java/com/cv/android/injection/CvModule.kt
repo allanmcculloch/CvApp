@@ -9,6 +9,10 @@ import com.cv.android.ui.contactinfo.ContactInfoViewModel
 import com.cv.android.ui.joblist.JobListViewModel
 import com.cv.android.ui.photos.PhotosViewModel
 import com.cv.android.ui.sendmessage.SendMessageViewModel
+import com.cv.android.usecases.GetContactInfoUseCase
+import com.cv.android.usecases.GetJobsListUseCase
+import com.cv.android.usecases.GetPhotosUseCase
+import com.cv.android.usecases.SendMessageUseCase
 import org.koin.android.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
 
@@ -17,6 +21,11 @@ val cvModule = module {
     viewModel { JobListViewModel(get()) }
     viewModel { SendMessageViewModel(get()) }
     viewModel { PhotosViewModel(get()) }
+
+    single { GetJobsListUseCase(get()) }
+    single { GetPhotosUseCase(get()) }
+    single { GetContactInfoUseCase(get()) }
+    single { SendMessageUseCase(get()) }
 
     single { ContactInfoRepository(get()) }
     single { JobsRepository(get()) }

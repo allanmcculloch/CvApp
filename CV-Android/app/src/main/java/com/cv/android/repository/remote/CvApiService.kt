@@ -6,6 +6,7 @@ import com.cv.models.SendMessageRequest
 import com.cv.models.Job
 import com.cv.models.Photo
 import io.reactivex.Observable
+import io.reactivex.Single
 import retrofit2.Response
 
 class CvApiService(clientProvider: ClientProvider) {

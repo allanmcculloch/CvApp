@@ -1,7 +1,7 @@
 package com.cv.android.ui.joblist
 
-import com.cv.android.repository.JobsRepository
 import com.cv.android.ui.BaseViewModelTest
+import com.cv.android.usecases.GetJobsListUseCase
 import com.cv.models.Job
 import io.mockk.every
 import io.mockk.mockk
@@ -12,13 +12,13 @@ import org.junit.Test
 
 class JobListViewModelTest : BaseViewModelTest() {
     lateinit var viewModel : JobListViewModel
-    lateinit var jobsRepository : JobsRepository
+    lateinit var getJobsListUseCase : GetJobsListUseCase
 
     @Before
     fun setUp() {
-        jobsRepository = mockk(relaxed = true)
+        getJobsListUseCase = mockk(relaxed = true)
 
-        every {jobsRepository.getJobs() }.returns(Observable.just(sampleData))
+        every {getJobsListUseCase.execute() }.returns(Observable.just(sampleData))
     }
 
     @Test
@@ -28,7 +28,7 @@ class JobListViewModelTest : BaseViewModelTest() {
         assertEquals(viewModel.jobListAdapter.itemCount, sampleData.count())
     }
 
-    fun createViewModel() = JobListViewModel(jobsRepository)
+    fun createViewModel() = JobListViewModel(getJobsListUseCase)
 
     val sampleData =
         listOf(

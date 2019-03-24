@@ -2,6 +2,8 @@ package com.cv.android.ui.sendmessage
 
 import com.cv.android.repository.remote.CvApiService
 import com.cv.android.ui.BaseViewModelTest
+import com.cv.android.usecases.GetContactInfoUseCase
+import com.cv.android.usecases.SendMessageUseCase
 import com.cv.models.SendMessageRequest
 import com.jraska.livedata.test
 import io.mockk.every
@@ -16,26 +18,26 @@ import retrofit2.Response
 
 class SendMessageVewModelTest : BaseViewModelTest() {
     lateinit var viewModel : SendMessageViewModel
-    lateinit var cvApiService: CvApiService
+    lateinit var sendMessageUseCase: SendMessageUseCase
 
     @Before
     fun setUp() {
 
-        cvApiService = mockk(relaxed = true)
+        sendMessageUseCase = mockk(relaxed = true)
         viewModel = CreateViewModel()
     }
 
     private fun mockSuccessfulResponse() {
-        every {cvApiService.postSendMessage(testValidSendMessageRequest) }.returns(Observable.just(Response.success(Unit)))
+        every {sendMessageUseCase.execute(testValidSendMessageRequest) }.returns(Observable.just(Response.success(Unit)))
     }
 
     private fun mockUnsuccessfulServerErrorResponse() {
-        every {cvApiService.postSendMessage(testValidSendMessageRequest) }.returns(Observable.just(Response.error(500, ResponseBody.create(
+        every {sendMessageUseCase.execute(testValidSendMessageRequest) }.returns(Observable.just(Response.error(500, ResponseBody.create(
             MediaType.get("application/json"),""))))
     }
 
     private fun mockUnsuccessfulRequestResponse() {
-        every {cvApiService.postSendMessage(testBadSendMessageRequest) }.returns(Observable.just(Response.error(403, ResponseBody.create(
+        every {sendMessageUseCase.execute(testBadSendMessageRequest) }.returns(Observable.just(Response.error(403, ResponseBody.create(
             MediaType.get("application/json"),""))))
     }
 
@@ -58,7 +60,7 @@ class SendMessageVewModelTest : BaseViewModelTest() {
 
         viewModel.sendMessage()
 
-        verify { cvApiService.postSendMessage(testValidSendMessageRequest) }
+        verify { sendMessageUseCase.execute(testValidSendMessageRequest) }
 
         viewModel.sentMessageVisible.test()
             .awaitValue()
@@ -158,5 +160,5 @@ class SendMessageVewModelTest : BaseViewModelTest() {
     val testValidSendMessageRequest = SendMessageRequest("testName","testEmail","testMessage")
     val testBadSendMessageRequest = SendMessageRequest("","invalidEmail","")
 
-    fun CreateViewModel() = SendMessageViewModel(cvApiService)
+    fun CreateViewModel() = SendMessageViewModel(sendMessageUseCase)
 }
