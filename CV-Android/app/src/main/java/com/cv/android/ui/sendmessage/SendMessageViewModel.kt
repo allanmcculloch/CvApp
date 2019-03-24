@@ -2,13 +2,11 @@ package com.cv.android.ui.sendmessage
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.cv.android.repository.remote.CvApiService
+import com.cv.android.usecases.SendMessageUseCase
 import com.cv.models.SendMessageRequest
-import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
-import io.reactivex.schedulers.Schedulers
 
-class SendMessageViewModel(private val cvApiService: CvApiService) : ViewModel() {
+class SendMessageViewModel(private val sendMessageUseCase: SendMessageUseCase) : ViewModel() {
     val name : MutableLiveData<String> = MutableLiveData()
     val email : MutableLiveData<String> = MutableLiveData()
     val message : MutableLiveData<String> = MutableLiveData()
@@ -26,9 +24,9 @@ class SendMessageViewModel(private val cvApiService: CvApiService) : ViewModel()
     }
 
     fun sendMessage() {
-        subscription = cvApiService.postSendMessage(SendMessageRequest(name.value ?: "", email.value ?: "", message.value ?: ""))
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
+        val message = SendMessageRequest(name.value ?: "", email.value ?: "", message.value ?: "")
+
+        subscription = sendMessageUseCase.execute(message)
             .subscribe({
 
                 if (it.isSuccessful) {

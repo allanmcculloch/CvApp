@@ -3,12 +3,13 @@ package com.cv.android.ui.contactinfo
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.cv.android.repository.ContactInfoRepository
+import com.cv.android.usecases.GetContactInfoUseCase
 import com.cv.models.ContactInfo
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
-class ContactInfoViewModel(private val repository: ContactInfoRepository) : ViewModel() {
+class ContactInfoViewModel(private val getContactInfoUseCase: GetContactInfoUseCase) : ViewModel() {
     val name : MutableLiveData<String> = MutableLiveData()
     val address : MutableLiveData<String> = MutableLiveData()
     val email : MutableLiveData<String> = MutableLiveData()
@@ -25,12 +26,8 @@ class ContactInfoViewModel(private val repository: ContactInfoRepository) : View
     }
 
     private fun loadData() {
-
-        subscription = repository.getContactInfo()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
+        subscription = getContactInfoUseCase.execute()
             .subscribe({
-
                 contactInfo.value = it
 
                 name.value = it?.name
@@ -39,7 +36,6 @@ class ContactInfoViewModel(private val repository: ContactInfoRepository) : View
                 mobile.value = it?.mobileContact
                 webAddress.value = it?.webAddress
                 imageUrl.value = it?.imageUrl
-
             },Throwable::printStackTrace)
     }
 
