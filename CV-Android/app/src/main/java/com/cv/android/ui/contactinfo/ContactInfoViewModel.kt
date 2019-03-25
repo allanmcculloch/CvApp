@@ -1,5 +1,6 @@
 package com.cv.android.ui.contactinfo
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.cv.android.repository.ContactInfoRepository
@@ -10,12 +11,19 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
 class ContactInfoViewModel(private val getContactInfoUseCase: GetContactInfoUseCase) : ViewModel() {
-    val name : MutableLiveData<String> = MutableLiveData()
-    val address : MutableLiveData<String> = MutableLiveData()
-    val email : MutableLiveData<String> = MutableLiveData()
-    val mobile : MutableLiveData<String> = MutableLiveData()
-    val webAddress : MutableLiveData<String> = MutableLiveData()
-    val imageUrl : MutableLiveData<String> = MutableLiveData()
+    private val _name : MutableLiveData<String> = MutableLiveData()
+    private val _address : MutableLiveData<String> = MutableLiveData()
+    private val _email : MutableLiveData<String> = MutableLiveData()
+    private val _mobile : MutableLiveData<String> = MutableLiveData()
+    private val _webAddress : MutableLiveData<String> = MutableLiveData()
+    private val _imageUrl : MutableLiveData<String> = MutableLiveData()
+
+    val name : LiveData<String> = _name
+    val address : LiveData<String> = _address
+    val email : LiveData<String> = _email
+    val mobile : LiveData<String> = _mobile
+    val webAddress : LiveData<String> = _webAddress
+    val imageUrl : LiveData<String> = _imageUrl
 
     private val contactInfo : MutableLiveData<ContactInfo> = MutableLiveData()
 
@@ -30,12 +38,12 @@ class ContactInfoViewModel(private val getContactInfoUseCase: GetContactInfoUseC
             .subscribe({
                 contactInfo.value = it
 
-                name.value = it?.name
-                address.value = it?.addressLines?.joinToString(", ")
-                email.value = it?.emailAddress
-                mobile.value = it?.mobileContact
-                webAddress.value = it?.webAddress
-                imageUrl.value = it?.imageUrl
+                _name.value = it?.name
+                _address.value = it?.addressLines?.joinToString(", ")
+                _email.value = it?.emailAddress
+                _mobile.value = it?.mobileContact
+                _webAddress.value = it?.webAddress
+                _imageUrl.value = it?.imageUrl
             },Throwable::printStackTrace)
     }
 

@@ -1,5 +1,6 @@
 package com.cv.android.ui.sendmessage
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.cv.android.usecases.SendMessageUseCase
@@ -7,20 +8,23 @@ import com.cv.models.SendMessageRequest
 import io.reactivex.disposables.Disposable
 
 class SendMessageViewModel(private val sendMessageUseCase: SendMessageUseCase) : ViewModel() {
-    val name : MutableLiveData<String> = MutableLiveData()
-    val email : MutableLiveData<String> = MutableLiveData()
-    val message : MutableLiveData<String> = MutableLiveData()
+    private val _errorMessageVisible: MutableLiveData<Boolean> = MutableLiveData()
+    private val _sentMessageVisible: MutableLiveData<Boolean> = MutableLiveData()
+    private val _formVisible: MutableLiveData<Boolean> = MutableLiveData()
 
-    val errorMessageVisible : MutableLiveData<Boolean> = MutableLiveData()
-    val sentMessageVisible : MutableLiveData<Boolean> = MutableLiveData()
-    val formVisible : MutableLiveData<Boolean> = MutableLiveData()
+    val name: MutableLiveData<String> = MutableLiveData()
+    val email: MutableLiveData<String> = MutableLiveData()
+    val message: MutableLiveData<String> = MutableLiveData()
+    val errorMessageVisible : LiveData<Boolean> = _errorMessageVisible
+    val sentMessageVisible : LiveData<Boolean> = _sentMessageVisible
+    val formVisible : LiveData<Boolean> = _formVisible
 
     private lateinit var subscription: Disposable
 
     init {
-        formVisible.value = true
-        sentMessageVisible.value = false
-        errorMessageVisible.value = false
+        _formVisible.value = true
+        _sentMessageVisible.value = false
+        _errorMessageVisible.value = false
     }
 
     fun sendMessage() {
@@ -30,16 +34,16 @@ class SendMessageViewModel(private val sendMessageUseCase: SendMessageUseCase) :
             .subscribe({
 
                 if (it.isSuccessful) {
-                    formVisible.value = false
-                    sentMessageVisible.value = true
-                    errorMessageVisible.value = false
+                    _formVisible.value = false
+                    _sentMessageVisible.value = true
+                    _errorMessageVisible.value = false
                 }
                 else {
-                    errorMessageVisible.value = true
+                    _errorMessageVisible.value = true
                 }
 
             }, {
-                errorMessageVisible.value = true
+                _errorMessageVisible.value = true
             })
     }
 
