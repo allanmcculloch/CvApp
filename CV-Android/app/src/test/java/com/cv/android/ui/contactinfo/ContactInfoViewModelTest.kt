@@ -1,6 +1,5 @@
 package com.cv.android.ui.contactinfo
 
-import com.cv.android.repository.ContactInfoRepository
 import com.cv.android.ui.BaseViewModelTest
 import com.cv.android.usecases.GetContactInfoUseCase
 import com.cv.models.ContactInfo
@@ -64,9 +63,9 @@ class ContactInfoViewModelTest : BaseViewModelTest() {
             .assertValue(testContactInfo.imageUrl)
     }
 
-    fun createViewModel() = ContactInfoViewModel(getContactInfoUseCase)
+    private fun createViewModel() = ContactInfoViewModel(getContactInfoUseCase)
 
-    val testContactInfo : ContactInfo =
+    private val testContactInfo : ContactInfo =
         ContactInfo(
             "Test 11",
             listOf("Address Line 1", "Line 2", "Line 3"),

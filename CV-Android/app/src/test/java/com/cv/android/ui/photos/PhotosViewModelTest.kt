@@ -1,7 +1,5 @@
 package com.cv.android.ui.photos
 
-
-import com.cv.android.repository.PhotosRepository
 import com.cv.android.ui.BaseViewModelTest
 import com.cv.android.usecases.GetPhotosUseCase
 import com.cv.models.Photo
@@ -31,9 +29,9 @@ class PhotosViewModelTest : BaseViewModelTest() {
         assertEquals(viewModel.photosAdaptor.itemCount, sampleData.count())
     }
 
-    fun createViewModel() = PhotosViewModel(getPhotosUseCase)
+    private fun createViewModel() = PhotosViewModel(getPhotosUseCase)
 
-    val sampleData =
+    private val sampleData =
 
         listOf(
             Photo("Test1", "http://someUrl.com/image1.png"),

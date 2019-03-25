@@ -17,7 +17,7 @@ class PhotoViewModelTest : BaseViewModelTest() {
         viewModel.imageUrl.test().assertValue(photoTestData.imageUrl)
     }
 
-    fun createViewModel() = PhotoViewModel()
+    private fun createViewModel() = PhotoViewModel()
 
-    val photoTestData = Photo("test1", "http://www.someurl.comm/image1.png")
+    private val photoTestData = Photo("test1", "http://www.someurl.comm/image1.png")
 }

@@ -1,8 +1,6 @@
 package com.cv.android.ui.sendmessage
 
-import com.cv.android.repository.remote.CvApiService
 import com.cv.android.ui.BaseViewModelTest
-import com.cv.android.usecases.GetContactInfoUseCase
 import com.cv.android.usecases.SendMessageUseCase
 import com.cv.models.SendMessageRequest
 import com.jraska.livedata.test
@@ -24,7 +22,7 @@ class SendMessageVewModelTest : BaseViewModelTest() {
     fun setUp() {
 
         sendMessageUseCase = mockk(relaxed = true)
-        viewModel = CreateViewModel()
+        viewModel = createViewModel()
     }
 
     private fun mockSuccessfulResponse() {
@@ -157,8 +155,8 @@ class SendMessageVewModelTest : BaseViewModelTest() {
             .assertValue(false)
     }
 
-    val testValidSendMessageRequest = SendMessageRequest("testName","testEmail","testMessage")
-    val testBadSendMessageRequest = SendMessageRequest("","invalidEmail","")
+    private val testValidSendMessageRequest = SendMessageRequest("testName","testEmail","testMessage")
+    private val testBadSendMessageRequest = SendMessageRequest("","invalidEmail","")
 
-    fun CreateViewModel() = SendMessageViewModel(sendMessageUseCase)
+    private fun createViewModel() = SendMessageViewModel(sendMessageUseCase)
 }

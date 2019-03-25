@@ -21,7 +21,7 @@ class JobViewModelTest : BaseViewModelTest() {
         viewModel.imageUrl.test().assertValue(jobTestData.imageUrl)
     }
 
-    fun createViewModel() = JobViewModel()
+    private fun createViewModel() = JobViewModel()
 
-    val jobTestData = Job("Company","Title","Description1","Period1","Location1","http://www.someurl.comm/image1.png")
+    private val jobTestData = Job("Company","Title","Description1","Period1","Location1","http://www.someurl.comm/image1.png")
 }

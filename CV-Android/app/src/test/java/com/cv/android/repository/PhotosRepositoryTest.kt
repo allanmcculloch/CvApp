@@ -53,14 +53,14 @@ class PhotosRepositoryTest {
         assertEquals(photosRepository.cache, sampleDataApi)
     }
 
-    val sampleDataApi =
+    private val sampleDataApi =
         listOf(
             Photo("Test1","http://www.someurl.com/photo1.png"),
             Photo("Test2","http://www.someurl.com/photo2.png")
 
         )
 
-    val sampleDataInCache =
+    private val sampleDataInCache =
         listOf(
             Photo("Test3","http://www.someurl.com/photo3.png")
         )
